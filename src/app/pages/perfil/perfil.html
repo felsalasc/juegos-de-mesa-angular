@@ -1,0 +1,32 @@
+<div class="perfil-page">
+
+  <div class="perfil-card">
+
+    <h1>Mi Perfil</h1>
+
+    <div *ngIf="usuario">
+
+      <div class="dato">
+        <strong>Nombre:</strong>
+        {{ usuario.nombre }}
+      </div>
+
+      <div class="dato">
+        <strong>Correo electrónico:</strong>
+        {{ usuario.email }}
+      </div>
+
+      <div class="dato">
+        <strong>Rol:</strong>
+        {{ usuario.rol }}
+      </div>
+
+      <button (click)="cerrarSesion()">
+        Cerrar sesión
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

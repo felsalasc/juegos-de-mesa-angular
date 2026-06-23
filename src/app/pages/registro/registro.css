@@ -1,0 +1,85 @@
+.registro-page {
+  min-height: 100vh;
+  background: #f5f2ec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.registro-card {
+  width: 100%;
+  max-width: 680px;
+  background: #ffffff;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+h1 {
+  margin-bottom: 16px;
+  color: #0f172a;
+  font-size: 32px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cfd8dc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #8b5a2b;
+}
+
+small {
+  color: #dc2626;
+  font-size: 13px;
+  margin-top: -8px;
+}
+
+.botones {
+  display: flex;
+  gap: 12px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #8b5a2b;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #70451f;
+}
+
+button.limpiar {
+  background: #6b7280;
+}
+
+button.limpiar:hover {
+  background: #4b5563;
+}
+
+.mensaje {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+a {
+  color: #2563eb;
+}

@@ -1,0 +1,70 @@
+<div class="registro-page">
+  <div class="registro-card">
+    <h1>Registro de usuario</h1>
+
+    <form [formGroup]="registroForm" (ngSubmit)="registrar()">
+
+      <input type="text" placeholder="Nombre completo" formControlName="nombreCompleto">
+      <small *ngIf="registroForm.controls['nombreCompleto'].touched && registroForm.controls['nombreCompleto'].hasError('required')">
+        El nombre completo es obligatorio.
+      </small>
+
+      <input type="text" placeholder="Nombre de usuario" formControlName="usuario">
+      <small *ngIf="registroForm.controls['usuario'].touched && registroForm.controls['usuario'].invalid">
+        El usuario es obligatorio y debe tener al menos 4 caracteres.
+      </small>
+
+      <input type="email" placeholder="Correo electrónico" formControlName="email">
+      <small *ngIf="registroForm.controls['email'].touched && registroForm.controls['email'].hasError('required')">
+        El correo es obligatorio.
+      </small>
+      <small *ngIf="registroForm.controls['email'].touched && registroForm.controls['email'].hasError('email')">
+        Ingresa un correo válido.
+      </small>
+
+      <input type="password" placeholder="Contraseña" formControlName="password">
+      <small *ngIf="registroForm.controls['password'].touched && registroForm.controls['password'].hasError('required')">
+        La contraseña es obligatoria.
+      </small>
+      <small *ngIf="registroForm.controls['password'].touched && registroForm.controls['password'].hasError('minlength')">
+        La contraseña debe tener mínimo 6 caracteres.
+      </small>
+      <small *ngIf="registroForm.controls['password'].touched && registroForm.controls['password'].hasError('maxlength')">
+        La contraseña debe tener máximo 18 caracteres.
+      </small>
+      <small *ngIf="registroForm.controls['password'].touched && registroForm.controls['password'].hasError('sinNumero')">
+        La contraseña debe contener al menos un número.
+      </small>
+      <small *ngIf="registroForm.controls['password'].touched && registroForm.controls['password'].hasError('sinMayuscula')">
+        La contraseña debe contener al menos una mayúscula.
+      </small>
+
+      <input type="password" placeholder="Repetir contraseña" formControlName="repetirPassword">
+      <small *ngIf="registroForm.controls['repetirPassword'].touched && registroForm.controls['repetirPassword'].hasError('required')">
+        Debes repetir la contraseña.
+      </small>
+      <small *ngIf="registroForm.hasError('passwordsNoCoinciden') && registroForm.controls['repetirPassword'].touched">
+        Las contraseñas no coinciden.
+      </small>
+
+      <input type="date" formControlName="fechaNacimiento">
+      <small *ngIf="registroForm.controls['fechaNacimiento'].touched && registroForm.controls['fechaNacimiento'].hasError('required')">
+        La fecha de nacimiento es obligatoria.
+      </small>
+      <small *ngIf="registroForm.controls['fechaNacimiento'].touched && registroForm.controls['fechaNacimiento'].hasError('menorDe13')">
+        Debes tener al menos 13 años.
+      </small>
+
+      <input type="text" placeholder="Dirección de despacho" formControlName="direccion">
+
+      <div class="botones">
+        <button type="submit">Registrarme</button>
+        <button type="button" class="limpiar" (click)="limpiarFormulario()">Limpiar</button>
+      </div>
+
+      <p class="mensaje" *ngIf="mensaje">{{ mensaje }}</p>
+    </form>
+
+    <p>¿Ya tienes cuenta? <a href="/login">Inicia sesión</a></p>
+  </div>
+</div>
