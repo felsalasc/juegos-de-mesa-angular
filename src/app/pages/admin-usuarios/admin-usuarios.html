@@ -1,0 +1,100 @@
+<div class="admin-usuarios-page">
+  <header class="navbar">
+    <div>
+      <h1>NortLAB</h1>
+      <p>Administración de usuarios</p>
+    </div>
+
+    <nav>
+      <a routerLink="/inicio">Inicio</a>
+      <a routerLink="/productos">Catálogo</a>
+      <a routerLink="/admin-productos">Admin productos</a>
+      <a routerLink="/admin-usuarios">Admin usuarios</a>
+      <a routerLink="/perfil">Perfil</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="page-title">
+      <span class="tag">Administrador</span>
+      <h2>Mantenedor de usuarios</h2>
+      <p>Gestiona usuarios, roles y estado de acceso a la plataforma.</p>
+    </section>
+
+    <section class="admin-layout">
+      <form class="form-card" [formGroup]="usuarioForm" (ngSubmit)="guardar()">
+        <h3>{{ editandoEmail ? 'Editar usuario' : 'Nuevo usuario' }}</h3>
+
+        <label>Nombre</label>
+        <input type="text" formControlName="nombre">
+        <small *ngIf="campoInvalido('nombre')">El nombre debe tener al menos 3 caracteres.</small>
+
+        <label>Correo electrónico</label>
+        <input type="email" formControlName="email">
+        <small *ngIf="campoInvalido('email')">Ingresa un correo válido.</small>
+
+        <label>Rol</label>
+        <select formControlName="rol">
+          <option value="">Seleccione un rol</option>
+          <option value="Cliente">Cliente</option>
+          <option value="Administrador">Administrador</option>
+        </select>
+        <small *ngIf="campoInvalido('rol')">El rol es obligatorio.</small>
+
+        <label>Estado</label>
+        <select formControlName="estado">
+          <option value="Activo">Activo</option>
+          <option value="Bloqueado">Bloqueado</option>
+        </select>
+
+        <p class="mensaje" *ngIf="mensaje">{{ mensaje }}</p>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">
+            {{ editandoEmail ? 'Actualizar' : 'Guardar' }}
+          </button>
+
+          <button type="button" class="btn btn-secondary" (click)="limpiarFormulario()">
+            Limpiar
+          </button>
+        </div>
+      </form>
+
+      <section class="table-card">
+        <h3>Listado de usuarios</h3>
+
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let usuario of usuarios">
+                <td>{{ usuario.nombre }}</td>
+                <td>{{ usuario.email }}</td>
+                <td>{{ usuario.rol || 'Cliente' }}</td>
+                <td>{{ usuario.estado || 'Activo' }}</td>
+                <td>
+                  <button type="button" class="btn-table edit" (click)="editar(usuario)">
+                    Editar
+                  </button>
+
+                  <button type="button" class="btn-table delete" (click)="eliminar(usuario.email)">
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+</div>

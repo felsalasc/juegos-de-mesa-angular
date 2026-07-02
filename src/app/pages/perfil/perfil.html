@@ -1,32 +1,79 @@
 <div class="perfil-page">
-
-  <div class="perfil-card">
-
-    <h1>Mi Perfil</h1>
-
-    <div *ngIf="usuario">
-
-      <div class="dato">
-        <strong>Nombre:</strong>
-        {{ usuario.nombre }}
-      </div>
-
-      <div class="dato">
-        <strong>Correo electrónico:</strong>
-        {{ usuario.email }}
-      </div>
-
-      <div class="dato">
-        <strong>Rol:</strong>
-        {{ usuario.rol }}
-      </div>
-
-      <button (click)="cerrarSesion()">
-        Cerrar sesión
-      </button>
-
+  <header class="navbar">
+    <div>
+      <h1>NortLAB</h1>
+      <p>Modificación de perfil</p>
     </div>
 
-  </div>
+    <nav>
+      <a routerLink="/inicio">Inicio</a>
+      <a routerLink="/productos">Catálogo</a>
+      <a routerLink="/carrito">Carrito</a>
+      <a routerLink="/mis-compras">Mis compras</a>
+      <a routerLink="/perfil">Perfil</a>
+    </nav>
+  </header>
 
+  <main class="container">
+    <section class="page-title">
+      <span class="tag">Cuenta de usuario</span>
+      <h2>Editar mi perfil</h2>
+      <p>Actualiza tus datos personales y de contacto.</p>
+    </section>
+
+    <section class="perfil-layout">
+      <form class="form-card" [formGroup]="perfilForm" (ngSubmit)="guardarCambios()">
+        <h3>Datos personales</h3>
+
+        <label>Nombre</label>
+        <input type="text" formControlName="nombre">
+        <small *ngIf="campoInvalido('nombre')">El nombre debe tener al menos 3 caracteres.</small>
+
+        <label>Correo electrónico</label>
+        <input type="email" formControlName="email">
+        <small *ngIf="campoInvalido('email')">Ingresa un correo válido.</small>
+
+        <label>Teléfono</label>
+        <input type="text" formControlName="telefono">
+        <small *ngIf="campoInvalido('telefono')">El teléfono debe tener al menos 8 caracteres.</small>
+
+        <label>Dirección</label>
+        <input type="text" formControlName="direccion">
+        <small *ngIf="campoInvalido('direccion')">La dirección debe tener al menos 5 caracteres.</small>
+
+        <label>Rol</label>
+        <input type="text" formControlName="rol" readonly>
+
+        <p class="mensaje" *ngIf="mensaje">{{ mensaje }}</p>
+
+        <button type="submit" class="btn btn-primary">
+          Guardar cambios
+        </button>
+      </form>
+
+      <aside class="profile-card" *ngIf="usuarioActivo">
+        <div class="avatar">
+          {{ usuarioActivo.nombre ? usuarioActivo.nombre.charAt(0).toUpperCase() : 'U' }}
+        </div>
+
+        <h3>{{ usuarioActivo.nombre }}</h3>
+        <p>{{ usuarioActivo.email }}</p>
+
+        <div class="profile-info">
+          <span>Rol</span>
+          <strong>{{ usuarioActivo.rol || 'Cliente' }}</strong>
+        </div>
+
+        <div class="profile-info">
+          <span>Teléfono</span>
+          <strong>{{ usuarioActivo.telefono || 'No registrado' }}</strong>
+        </div>
+
+        <div class="profile-info">
+          <span>Dirección</span>
+          <strong>{{ usuarioActivo.direccion || 'No registrada' }}</strong>
+        </div>
+      </aside>
+    </section>
+  </main>
 </div>

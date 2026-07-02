@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgIf } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, NgIf],
+  imports: [ReactiveFormsModule, NgIf, RouterLink],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
@@ -37,7 +37,6 @@ export class Login {
     }
 
     const { email, password } = this.loginForm.value;
-
     const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
 
     const usuario = usuarios.find(
@@ -50,6 +49,6 @@ export class Login {
     }
 
     localStorage.setItem('usuarioActivo', JSON.stringify(usuario));
-    this.router.navigate(['/perfil']);
+    this.router.navigate(['/inicio']);
   }
 }

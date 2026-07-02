@@ -1,0 +1,81 @@
+<div class="carrito-page">
+  <header class="navbar">
+    <div>
+      <h1>NortLAB</h1>
+      <p>Carrito de compras</p>
+    </div>
+
+    <nav>
+      <a routerLink="/inicio">Inicio</a>
+      <a routerLink="/productos">Catálogo</a>
+      <a routerLink="/carrito">Carrito</a>
+      <a routerLink="/mis-compras">Mis compras</a>
+      <a routerLink="/perfil">Perfil</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="page-title">
+      <span class="tag">Compra simulada</span>
+      <h2>Carrito de compras</h2>
+      <p>
+        Revisa los juegos agregados antes de finalizar la compra.
+      </p>
+    </section>
+
+    <section class="empty-cart" *ngIf="carrito.length === 0">
+      <h3>Tu carrito está vacío</h3>
+      <p>Agrega juegos desde el catálogo para continuar.</p>
+      <a routerLink="/productos" class="btn btn-primary">Ver catálogo</a>
+    </section>
+
+    <section class="cart-layout" *ngIf="carrito.length > 0">
+      <div class="cart-items">
+        <article class="cart-card" *ngFor="let item of carrito">
+          <div class="item-icon">{{ item.imagen }}</div>
+
+          <div class="item-info">
+            <span>{{ item.categoria }}</span>
+            <h3>{{ item.nombre }}</h3>
+            <p>{{ item.descripcion }}</p>
+            <strong>${{ item.precio }}</strong>
+          </div>
+
+          <div class="item-actions">
+            <div class="quantity">
+              <button type="button" (click)="disminuirCantidad(item)">-</button>
+              <span>{{ item.cantidad }}</span>
+              <button type="button" (click)="aumentarCantidad(item)">+</button>
+            </div>
+
+            <button type="button" class="btn-delete" (click)="eliminarProducto(item.id)">
+              Eliminar
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <aside class="summary">
+        <h3>Resumen</h3>
+
+        <div class="summary-row">
+          <span>Productos</span>
+          <strong>{{ carrito.length }}</strong>
+        </div>
+
+        <div class="summary-row total">
+          <span>Total</span>
+          <strong>${{ total }}</strong>
+        </div>
+
+        <button type="button" class="btn btn-primary" (click)="finalizarCompra()">
+          Finalizar compra
+        </button>
+
+        <button type="button" class="btn btn-secondary" (click)="vaciarCarrito()">
+          Vaciar carrito
+        </button>
+      </aside>
+    </section>
+  </main>
+</div>

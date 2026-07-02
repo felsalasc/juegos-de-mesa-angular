@@ -1,0 +1,65 @@
+<div class="mis-compras-page">
+  <header class="navbar">
+    <div>
+      <h1>NortLAB</h1>
+      <p>Historial de compras</p>
+    </div>
+
+    <nav>
+      <a routerLink="/inicio">Inicio</a>
+      <a routerLink="/productos">Catálogo</a>
+      <a routerLink="/carrito">Carrito</a>
+      <a routerLink="/mis-compras">Mis compras</a>
+      <a routerLink="/perfil">Perfil</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="page-title">
+      <span class="tag">Usuario</span>
+      <h2>Mis compras</h2>
+      <p>
+        Revisa el historial de compras realizadas en la tienda NortLAB.
+      </p>
+    </section>
+
+    <section class="empty" *ngIf="compras.length === 0">
+      <h3>No tienes compras registradas</h3>
+      <p>Finaliza una compra desde el carrito para verla en esta sección.</p>
+      <a routerLink="/productos" class="btn btn-primary">Ver catálogo</a>
+    </section>
+
+    <section class="compras-list" *ngIf="compras.length > 0">
+      <article class="compra-card" *ngFor="let compra of compras">
+        <div class="compra-header">
+          <div>
+            <span class="compra-id">Compra #{{ compra.id }}</span>
+            <h3>Estado: {{ compra.estado }}</h3>
+            <p>Fecha: {{ compra.fecha }}</p>
+          </div>
+
+          <strong class="total">${{ compra.total }}</strong>
+        </div>
+
+        <div class="productos">
+          <div class="producto" *ngFor="let producto of compra.productos">
+            <span class="icon">{{ producto.imagen }}</span>
+
+            <div>
+              <h4>{{ producto.nombre }}</h4>
+              <p>{{ producto.categoria }}</p>
+              <small>
+                Cantidad: {{ producto.cantidad }} |
+                Precio unitario: ${{ producto.precio }}
+              </small>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <button type="button" class="btn btn-secondary" (click)="limpiarHistorial()">
+        Limpiar historial
+      </button>
+    </section>
+  </main>
+</div>

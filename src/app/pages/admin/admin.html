@@ -1,0 +1,41 @@
+<div class="admin-page">
+  <header class="navbar">
+    <div>
+      <h1>NortLAB</h1>
+      <p>Panel de administración</p>
+    </div>
+
+    <nav>
+      <a routerLink="/inicio">Inicio</a>
+      <a routerLink="/productos">Catálogo</a>
+      <a routerLink="/carrito">Carrito</a>
+      <a routerLink="/mis-compras">Mis compras</a>
+      <a routerLink="/perfil">Perfil</a>
+      <a routerLink="/admin">Admin</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="page-title">
+      <span class="tag">Administrador</span>
+      <h2>Panel Admin</h2>
+      <p>Gestiona productos y usuarios desde una sola sección.</p>
+    </section>
+
+    <section class="admin-grid">
+      <article class="admin-card">
+        <div class="icon">🎲</div>
+        <h3>Productos</h3>
+        <p>Crear, editar y eliminar juegos educativos del catálogo NortLAB.</p>
+        <a routerLink="/admin-productos" class="btn">Administrar productos</a>
+      </article>
+
+      <article class="admin-card">
+        <div class="icon">👥</div>
+        <h3>Usuarios</h3>
+        <p>Gestionar clientes, administradores, roles y estado de acceso.</p>
+        <a routerLink="/admin-usuarios" class="btn">Administrar usuarios</a>
+      </article>
+    </section>
+  </main>
+</div>

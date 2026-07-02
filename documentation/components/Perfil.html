@@ -1,0 +1,1195 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>juegos-de-mesa-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">juegos-de-mesa-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+    <button type="button"
+        class="search-input-clear"
+        aria-label="Clear search"
+        data-search-input-clear>&times;</button>
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  Perfil</li>
+</ol>
+
+<div class="io-file io-file-path" data-compodoc="entity-file-path">
+    <span class="icon ion-ios-document" aria-hidden="true"></span>
+    <code>src/app/pages/perfil/perfil.ts</code>
+</div>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#api" class="nav-link"
+                role="tab" id="api-tab" data-bs-toggle="tab" data-link="api">API</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.dev/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-perfil</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                        <div>        <code><a href="https://angular.dev/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+</div>
+                        <div>        <code><a href="https://angular.dev/api/forms/ReactiveFormsModule" target="_blank" >ReactiveFormsModule</a></code>
+</div>
+                        <div>        <code><a href="https://angular.dev/api/router/RouterLink" target="_blank" >RouterLink</a></code>
+</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./perfil.css</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./perfil.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./perfil.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+        <section data-compodoc="block-relationships">
+            <h3>Relationships</h3>
+
+            <div class="row pt-3">
+                <div class="col-sm-6">
+                    <h4>Used by</h4>
+                        <p class="comment"><i>No results matching.</i></p>
+                </div>
+
+                <div class="col-sm-6">
+                    <h4>Depends on</h4>
+                        <ul class="list-unstyled relationships-list">
+                                <li>
+                                            <code><a href="https://angular.dev/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="https://angular.dev/api/forms/ReactiveFormsModule" target="_blank" >ReactiveFormsModule</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="https://angular.dev/api/router/RouterLink" target="_blank" >RouterLink</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="https://angular.dev/api/core/OnInit" target="_blank" >OnInit</a></code>
+                                </li>
+                        </ul>
+                </div>
+            </div>
+        </section>
+</div>
+
+    <div class="tab-pane fade " id="api">    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+        <table class="table table-sm table-bordered index-table">
+            <tbody>
+                <tr>
+                    <td class="col-md-3">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                    <td class="col-md-9">
+                        <ul class="index-list">
+                            <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
+                                <a href="#mensaje" >mensaje</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
+                                <a href="#perfilForm" >perfilForm</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
+                                    <span class="modifier">Private</span>
+                                <a href="#platformId" >platformId</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
+                                <a href="#usuarioActivo" >usuarioActivo</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-sm table-bordered index-table">
+            <tbody>
+                <tr>
+                    <td class="col-md-3">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                    <td class="col-md-9">
+                        <ul class="index-list">
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                <a href="#campoInvalido" >campoInvalido</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                <a href="#guardarCambios" >guardarCambios</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: <a href="https://angular.dev/api/forms/FormBuilder" target="_blank">FormBuilder</a>, router: <a href="https://angular.dev/api/router/Router" target="_blank">Router</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/perfil/perfil.ts:18</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.dev/api/forms/FormBuilder" target="_blank" >FormBuilder</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.dev/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="campoInvalido"></a>
+                    <span class="name">
+                        <span ><b>campoInvalido</b></span>
+                        <a href="#campoInvalido"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>campoInvalido(campo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="52"
+                                    class="link-to-prism">src/app/pages/perfil/perfil.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>campo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardarCambios"></a>
+                    <span class="name">
+                        <span ><b>guardarCambios</b></span>
+                        <a href="#guardarCambios"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>guardarCambios()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/app/pages/perfil/perfil.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="33"
+                                    class="link-to-prism">src/app/pages/perfil/perfil.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mensaje"></a>
+                    <span class="name">
+                        <span ><b>mensaje</b></span>
+                        <a href="#mensaje"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/perfil/perfil.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perfilForm"></a>
+                    <span class="name">
+                        <span ><b>perfilForm</b></span>
+                        <a href="#perfilForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://angular.dev/api/forms/FormGroup" target="_blank" >FormGroup</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/perfil/perfil.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="platformId"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>platformId</b></span>
+                        <a href="#platformId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>inject(PLATFORM_ID)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/pages/perfil/perfil.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usuarioActivo"></a>
+                    <span class="name">
+                        <span ><b>usuarioActivo</b></span>
+                        <a href="#usuarioActivo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/pages/perfil/perfil.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, inject, PLATFORM_ID } from &#x27;@angular/core&#x27;;
+import { CommonModule, isPlatformBrowser } from &#x27;@angular/common&#x27;;
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { RouterLink, Router } from &#x27;@angular/router&#x27;;
+
+@Component({
+  selector: &#x27;app-perfil&#x27;,
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  templateUrl: &#x27;./perfil.html&#x27;,
+  styleUrl: &#x27;./perfil.css&#x27;
+})
+export class Perfil implements OnInit {
+  private platformId &#x3D; inject(PLATFORM_ID);
+
+  perfilForm: FormGroup;
+  mensaje &#x3D; &#x27;&#x27;;
+  usuarioActivo: any &#x3D; null;
+
+  constructor(
+    private fb: FormBuilder,
+    private router: Router
+  ) {
+    this.perfilForm &#x3D; this.fb.group({
+      nombre: [&#x27;&#x27;, [Validators.required, Validators.minLength(3)]],
+      email: [&#x27;&#x27;, [Validators.required, Validators.email]],
+      direccion: [&#x27;&#x27;, [Validators.required, Validators.minLength(5)]],
+      telefono: [&#x27;&#x27;, [Validators.required, Validators.minLength(8)]],
+      rol: [&#x27;Cliente&#x27;]
+    });
+  }
+
+  ngOnInit(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    this.usuarioActivo &#x3D; JSON.parse(localStorage.getItem(&#x27;usuarioActivo&#x27;) || &#x27;null&#x27;);
+
+    if (!this.usuarioActivo) {
+      this.router.navigate([&#x27;/login&#x27;]);
+      return;
+    }
+
+    this.perfilForm.patchValue({
+      nombre: this.usuarioActivo.nombre || &#x27;&#x27;,
+      email: this.usuarioActivo.email || &#x27;&#x27;,
+      direccion: this.usuarioActivo.direccion || &#x27;&#x27;,
+      telefono: this.usuarioActivo.telefono || &#x27;&#x27;,
+      rol: this.usuarioActivo.rol || &#x27;Cliente&#x27;
+    });
+  }
+
+  campoInvalido(campo: string): boolean {
+    const control &#x3D; this.perfilForm.get(campo);
+    return !!control &amp;&amp; control.invalid &amp;&amp; control.touched;
+  }
+
+  guardarCambios(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    if (this.perfilForm.invalid) {
+      this.perfilForm.markAllAsTouched();
+      this.mensaje &#x3D; &#x27;Debes completar correctamente el formulario.&#x27;;
+      return;
+    }
+
+    const datosActualizados &#x3D; {
+      ...this.usuarioActivo,
+      ...this.perfilForm.value
+    };
+
+    localStorage.setItem(&#x27;usuarioActivo&#x27;, JSON.stringify(datosActualizados));
+
+    const usuarios &#x3D; JSON.parse(localStorage.getItem(&#x27;usuarios&#x27;) || &#x27;[]&#x27;);
+
+    const usuariosActualizados &#x3D; usuarios.map((usuario: any) &#x3D;&gt;
+      usuario.email &#x3D;&#x3D;&#x3D; this.usuarioActivo.email
+        ? datosActualizados
+        : usuario
+    );
+
+    localStorage.setItem(&#x27;usuarios&#x27;, JSON.stringify(usuariosActualizados));
+
+    this.usuarioActivo &#x3D; datosActualizados;
+    this.mensaje &#x3D; &#x27;Perfil actualizado correctamente.&#x27;;
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;perfil-page&quot;&gt;
+  &lt;header class&#x3D;&quot;navbar&quot;&gt;
+    &lt;div&gt;
+      &lt;h1&gt;NortLAB&lt;/h1&gt;
+      &lt;p&gt;Modificación de perfil&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;nav&gt;
+      &lt;a routerLink&#x3D;&quot;/inicio&quot;&gt;Inicio&lt;/a&gt;
+      &lt;a routerLink&#x3D;&quot;/productos&quot;&gt;Catálogo&lt;/a&gt;
+      &lt;a routerLink&#x3D;&quot;/carrito&quot;&gt;Carrito&lt;/a&gt;
+      &lt;a routerLink&#x3D;&quot;/mis-compras&quot;&gt;Mis compras&lt;/a&gt;
+      &lt;a routerLink&#x3D;&quot;/perfil&quot;&gt;Perfil&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main class&#x3D;&quot;container&quot;&gt;
+    &lt;section class&#x3D;&quot;page-title&quot;&gt;
+      &lt;span class&#x3D;&quot;tag&quot;&gt;Cuenta de usuario&lt;/span&gt;
+      &lt;h2&gt;Editar mi perfil&lt;/h2&gt;
+      &lt;p&gt;Actualiza tus datos personales y de contacto.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section class&#x3D;&quot;perfil-layout&quot;&gt;
+      &lt;form class&#x3D;&quot;form-card&quot; [formGroup]&#x3D;&quot;perfilForm&quot; (ngSubmit)&#x3D;&quot;guardarCambios()&quot;&gt;
+        &lt;h3&gt;Datos personales&lt;/h3&gt;
+
+        &lt;label&gt;Nombre&lt;/label&gt;
+        &lt;input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;nombre&quot;&gt;
+        &lt;small *ngIf&#x3D;&quot;campoInvalido(&#x27;nombre&#x27;)&quot;&gt;El nombre debe tener al menos 3 caracteres.&lt;/small&gt;
+
+        &lt;label&gt;Correo electrónico&lt;/label&gt;
+        &lt;input type&#x3D;&quot;email&quot; formControlName&#x3D;&quot;email&quot;&gt;
+        &lt;small *ngIf&#x3D;&quot;campoInvalido(&#x27;email&#x27;)&quot;&gt;Ingresa un correo válido.&lt;/small&gt;
+
+        &lt;label&gt;Teléfono&lt;/label&gt;
+        &lt;input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;telefono&quot;&gt;
+        &lt;small *ngIf&#x3D;&quot;campoInvalido(&#x27;telefono&#x27;)&quot;&gt;El teléfono debe tener al menos 8 caracteres.&lt;/small&gt;
+
+        &lt;label&gt;Dirección&lt;/label&gt;
+        &lt;input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;direccion&quot;&gt;
+        &lt;small *ngIf&#x3D;&quot;campoInvalido(&#x27;direccion&#x27;)&quot;&gt;La dirección debe tener al menos 5 caracteres.&lt;/small&gt;
+
+        &lt;label&gt;Rol&lt;/label&gt;
+        &lt;input type&#x3D;&quot;text&quot; formControlName&#x3D;&quot;rol&quot; readonly&gt;
+
+        &lt;p class&#x3D;&quot;mensaje&quot; *ngIf&#x3D;&quot;mensaje&quot;&gt;{{ mensaje }}&lt;/p&gt;
+
+        &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;
+          Guardar cambios
+        &lt;/button&gt;
+      &lt;/form&gt;
+
+      &lt;aside class&#x3D;&quot;profile-card&quot; *ngIf&#x3D;&quot;usuarioActivo&quot;&gt;
+        &lt;div class&#x3D;&quot;avatar&quot;&gt;
+          {{ usuarioActivo.nombre ? usuarioActivo.nombre.charAt(0).toUpperCase() : &#x27;U&#x27; }}
+        &lt;/div&gt;
+
+        &lt;h3&gt;{{ usuarioActivo.nombre }}&lt;/h3&gt;
+        &lt;p&gt;{{ usuarioActivo.email }}&lt;/p&gt;
+
+        &lt;div class&#x3D;&quot;profile-info&quot;&gt;
+          &lt;span&gt;Rol&lt;/span&gt;
+          &lt;strong&gt;{{ usuarioActivo.rol || &#x27;Cliente&#x27; }}&lt;/strong&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;profile-info&quot;&gt;
+          &lt;span&gt;Teléfono&lt;/span&gt;
+          &lt;strong&gt;{{ usuarioActivo.telefono || &#x27;No registrado&#x27; }}&lt;/strong&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;profile-info&quot;&gt;
+          &lt;span&gt;Dirección&lt;/span&gt;
+          &lt;strong&gt;{{ usuarioActivo.direccion || &#x27;No registrada&#x27; }}&lt;/strong&gt;
+        &lt;/div&gt;
+      &lt;/aside&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./perfil.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.perfil-page {
+  min-height: 100vh;
+  background: #f4efe7;
+  color: #2b1b12;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background: #5b2c1b;
+  color: #ffffff;
+  padding: 22px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.navbar p {
+  margin: 6px 0 0;
+  color: #f5d7b0;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.container {
+  width: 84%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 42px 0;
+}
+
+.page-title,
+.form-card,
+.profile-card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(60, 35, 18, 0.12);
+}
+
+.page-title {
+  padding: 34px;
+  margin-bottom: 28px;
+}
+
+.tag {
+  display: inline-block;
+  background: #f2b36d;
+  color: #4a2415;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.page-title h2 {
+  margin: 0 0 12px;
+  font-size: 34px;
+}
+
+.perfil-layout {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 24px;
+}
+
+.form-card,
+.profile-card {
+  padding: 28px;
+}
+
+.form-card h3,
+.profile-card h3 {
+  margin-top: 0;
+  color: #3a1f13;
+}
+
+label {
+  display: block;
+  margin-top: 14px;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d8c5b2;
+  border-radius: 10px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+input[readonly] {
+  background: #f3eadf;
+}
+
+small {
+  display: block;
+  color: #b42318;
+  margin-top: 5px;
+}
+
+.mensaje {
+  background: #f9f3ec;
+  border-left: 5px solid #8a4b24;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 18px;
+}
+
+.btn {
+  margin-top: 22px;
+  padding: 13px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #8a4b24;
+  color: #ffffff;
+  border: none;
+}
+
+.profile-card {
+  text-align: center;
+}
+
+.avatar {
+  width: 90px;
+  height: 90px;
+  background: #8a4b24;
+  color: #ffffff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 42px;
+  font-weight: 700;
+  margin: 0 auto 18px;
+}
+
+.profile-info {
+  background: #f9f3ec;
+  border-radius: 12px;
+  padding: 14px;
+  margin-top: 14px;
+  text-align: left;
+}
+
+.profile-info span {
+  display: block;
+  color: #8a4b24;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.profile-info strong {
+  color: #3a1f13;
+}
+
+@media (max-width: 992px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .perfil-layout {
+    grid-template-columns: 12fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 92%;
+    padding: 26px 0;
+  }
+
+  .navbar {
+    padding: 20px;
+  }
+
+  .navbar nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .page-title,
+  .form-card,
+  .profile-card {
+    padding: 24px;
+  }
+
+  .page-title h2 {
+    font-size: 28px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="perfil-page">  <header class="navbar">    <div>      <h1>NortLAB</h1>      <p>Modificación de perfil</p>    </div>    <nav>      <a routerLink="/inicio">Inicio</a>      <a routerLink="/productos">Catálogo</a>      <a routerLink="/carrito">Carrito</a>      <a routerLink="/mis-compras">Mis compras</a>      <a routerLink="/perfil">Perfil</a>    </nav>  </header>  <main class="container">    <section class="page-title">      <span class="tag">Cuenta de usuario</span>      <h2>Editar mi perfil</h2>      <p>Actualiza tus datos personales y de contacto.</p>    </section>    <section class="perfil-layout">      <form class="form-card" [formGroup]="perfilForm" (ngSubmit)="guardarCambios()">        <h3>Datos personales</h3>        <label>Nombre</label>        <input type="text" formControlName="nombre">        <small *ngIf="campoInvalido(\'nombre\')">El nombre debe tener al menos 3 caracteres.</small>        <label>Correo electrónico</label>        <input type="email" formControlName="email">        <small *ngIf="campoInvalido(\'email\')">Ingresa un correo válido.</small>        <label>Teléfono</label>        <input type="text" formControlName="telefono">        <small *ngIf="campoInvalido(\'telefono\')">El teléfono debe tener al menos 8 caracteres.</small>        <label>Dirección</label>        <input type="text" formControlName="direccion">        <small *ngIf="campoInvalido(\'direccion\')">La dirección debe tener al menos 5 caracteres.</small>        <label>Rol</label>        <input type="text" formControlName="rol" readonly>        <p class="mensaje" *ngIf="mensaje">{{ mensaje }}</p>        <button type="submit" class="btn btn-primary">          Guardar cambios        </button>      </form>      <aside class="profile-card" *ngIf="usuarioActivo">        <div class="avatar">          {{ usuarioActivo.nombre ? usuarioActivo.nombre.charAt(0).toUpperCase() : \'U\' }}        </div>        <h3>{{ usuarioActivo.nombre }}</h3>        <p>{{ usuarioActivo.email }}</p>        <div class="profile-info">          <span>Rol</span>          <strong>{{ usuarioActivo.rol || \'Cliente\' }}</strong>        </div>        <div class="profile-info">          <span>Teléfono</span>          <strong>{{ usuarioActivo.telefono || \'No registrado\' }}</strong>        </div>        <div class="profile-info">          <span>Dirección</span>          <strong>{{ usuarioActivo.direccion || \'No registrada\' }}</strong>        </div>      </aside>    </section>  </main></div></div>'
+    var COMPONENTS = [{'name': 'Admin', 'selector': 'app-admin'},{'name': 'AdminProductos', 'selector': 'app-admin-productos'},{'name': 'AdminUsuarios', 'selector': 'app-admin-usuarios'},{'name': 'App', 'selector': 'app-root'},{'name': 'Carrito', 'selector': 'app-carrito'},{'name': 'Inicio', 'selector': 'app-inicio'},{'name': 'Login', 'selector': 'app-login'},{'name': 'MisCompras', 'selector': 'app-mis-compras'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Productos', 'selector': 'app-productos'},{'name': 'Recuperar', 'selector': 'app-recuperar'},{'name': 'Registro', 'selector': 'app-registro'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'Perfil'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'Perfil.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var updateDarkModeSwitchOffset = function () {
+                    var content = document.querySelector('.content');
+                    var scrollbarWidth = 0;
+
+                    if (content) {
+                         scrollbarWidth = Math.max(0, content.offsetWidth - content.clientWidth);
+                    }
+
+                    document.documentElement.style.setProperty(
+                         '--content-scrollbar-width',
+                         scrollbarWidth + 'px'
+                    );
+               };
+
+               updateDarkModeSwitchOffset();
+               requestAnimationFrame(updateDarkModeSwitchOffset);
+               window.addEventListener('resize', updateDarkModeSwitchOffset);
+
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

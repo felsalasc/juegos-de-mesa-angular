@@ -1,0 +1,1465 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>juegos-de-mesa-angular documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">juegos-de-mesa-angular documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+    <button type="button"
+        class="search-input-clear"
+        aria-label="Clear search"
+        data-search-input-clear>&times;</button>
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  Carrito</li>
+</ol>
+
+<div class="io-file io-file-path" data-compodoc="entity-file-path">
+    <span class="icon ion-ios-document" aria-hidden="true"></span>
+    <code>src/app/pages/carrito/carrito.ts</code>
+</div>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#api" class="nav-link"
+                role="tab" id="api-tab" data-bs-toggle="tab" data-link="api">API</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.dev/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-carrito</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                        <div>        <code><a href="https://angular.dev/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+</div>
+                        <div>        <code><a href="https://angular.dev/api/router/RouterLink" target="_blank" >RouterLink</a></code>
+</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./carrito.css</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./carrito.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./carrito.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+        <section data-compodoc="block-relationships">
+            <h3>Relationships</h3>
+
+            <div class="row pt-3">
+                <div class="col-sm-6">
+                    <h4>Used by</h4>
+                        <p class="comment"><i>No results matching.</i></p>
+                </div>
+
+                <div class="col-sm-6">
+                    <h4>Depends on</h4>
+                        <ul class="list-unstyled relationships-list">
+                                <li>
+                                            <code><a href="https://angular.dev/api/common/CommonModule" target="_blank" >CommonModule</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="https://angular.dev/api/router/RouterLink" target="_blank" >RouterLink</a></code>
+                                </li>
+                                <li>
+                                            <code><a href="https://angular.dev/api/core/OnInit" target="_blank" >OnInit</a></code>
+                                </li>
+                        </ul>
+                </div>
+            </div>
+        </section>
+</div>
+
+    <div class="tab-pane fade " id="api">    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+        <table class="table table-sm table-bordered index-table">
+            <tbody>
+                <tr>
+                    <td class="col-md-3">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                    <td class="col-md-9">
+                        <ul class="index-list">
+                            <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
+                                <a href="#carrito" >carrito</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
+                                <a href="#total" >total</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-sm table-bordered index-table">
+            <tbody>
+                <tr>
+                    <td class="col-md-3">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                    <td class="col-md-9">
+                        <ul class="index-list">
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                <a href="#aumentarCantidad" >aumentarCantidad</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                <a href="#calcularTotal" >calcularTotal</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                <a href="#cargarCarrito" >cargarCarrito</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                <a href="#disminuirCantidad" >disminuirCantidad</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                <a href="#eliminarProducto" >eliminarProducto</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                <a href="#finalizarCompra" >finalizarCompra</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                <a href="#guardarCarrito" >guardarCarrito</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                <a href="#vaciarCarrito" >vaciarCarrito</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: <a href="https://angular.dev/api/router/Router" target="_blank">Router</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/pages/carrito/carrito.ts:14</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.dev/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="aumentarCantidad"></a>
+                    <span class="name">
+                        <span ><b>aumentarCantidad</b></span>
+                        <a href="#aumentarCantidad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>aumentarCantidad(item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="33"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calcularTotal"></a>
+                    <span class="name">
+                        <span ><b>calcularTotal</b></span>
+                        <a href="#calcularTotal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calcularTotal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="27"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cargarCarrito"></a>
+                    <span class="name">
+                        <span ><b>cargarCarrito</b></span>
+                        <a href="#cargarCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cargarCarrito()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="22"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="disminuirCantidad"></a>
+                    <span class="name">
+                        <span ><b>disminuirCantidad</b></span>
+                        <a href="#disminuirCantidad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>disminuirCantidad(item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="38"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eliminarProducto"></a>
+                    <span class="name">
+                        <span ><b>eliminarProducto</b></span>
+                        <a href="#eliminarProducto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>eliminarProducto(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="finalizarCompra"></a>
+                    <span class="name">
+                        <span ><b>finalizarCompra</b></span>
+                        <a href="#finalizarCompra"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>finalizarCompra()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="64"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="guardarCarrito"></a>
+                    <span class="name">
+                        <span ><b>guardarCarrito</b></span>
+                        <a href="#guardarCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>guardarCarrito()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="59"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="18"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="vaciarCarrito"></a>
+                    <span class="name">
+                        <span ><b>vaciarCarrito</b></span>
+                        <a href="#vaciarCarrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>vaciarCarrito()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="carrito"></a>
+                    <span class="name">
+                        <span ><b>carrito</b></span>
+                        <a href="#carrito"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/pages/carrito/carrito.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="total"></a>
+                    <span class="name">
+                        <span ><b>total</b></span>
+                        <a href="#total"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/pages/carrito/carrito.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { RouterLink, Router } from &#x27;@angular/router&#x27;;
+
+@Component({
+  selector: &#x27;app-carrito&#x27;,
+  standalone: true,
+  imports: [CommonModule, RouterLink],
+  templateUrl: &#x27;./carrito.html&#x27;,
+  styleUrl: &#x27;./carrito.css&#x27;
+})
+export class Carrito implements OnInit {
+  carrito: any[] &#x3D; [];
+  total &#x3D; 0;
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.cargarCarrito();
+  }
+
+  cargarCarrito(): void {
+    this.carrito &#x3D; JSON.parse(localStorage.getItem(&#x27;carrito&#x27;) || &#x27;[]&#x27;);
+    this.calcularTotal();
+  }
+
+  calcularTotal(): void {
+    this.total &#x3D; this.carrito.reduce((sum: number, item: any) &#x3D;&gt; {
+      return sum + item.precio * item.cantidad;
+    }, 0);
+  }
+
+  aumentarCantidad(item: any): void {
+    item.cantidad +&#x3D; 1;
+    this.guardarCarrito();
+  }
+
+  disminuirCantidad(item: any): void {
+    if (item.cantidad &gt; 1) {
+      item.cantidad -&#x3D; 1;
+    } else {
+      this.eliminarProducto(item.id);
+      return;
+    }
+
+    this.guardarCarrito();
+  }
+
+  eliminarProducto(id: number): void {
+    this.carrito &#x3D; this.carrito.filter((item: any) &#x3D;&gt; item.id !&#x3D;&#x3D; id);
+    this.guardarCarrito();
+  }
+
+  vaciarCarrito(): void {
+    this.carrito &#x3D; [];
+    this.guardarCarrito();
+  }
+
+  guardarCarrito(): void {
+    localStorage.setItem(&#x27;carrito&#x27;, JSON.stringify(this.carrito));
+    this.calcularTotal();
+  }
+
+  finalizarCompra(): void {
+    if (this.carrito.length &#x3D;&#x3D;&#x3D; 0) {
+      return;
+    }
+
+    const usuarioActivo &#x3D; JSON.parse(localStorage.getItem(&#x27;usuarioActivo&#x27;) || &#x27;null&#x27;);
+
+    const compra &#x3D; {
+      id: Date.now(),
+      fecha: new Date().toLocaleDateString(&#x27;es-CL&#x27;),
+      usuario: usuarioActivo?.email || &#x27;invitado&#x27;,
+      productos: this.carrito,
+      total: this.total,
+      estado: &#x27;Pagado&#x27;
+    };
+
+    const compras &#x3D; JSON.parse(localStorage.getItem(&#x27;compras&#x27;) || &#x27;[]&#x27;);
+    compras.push(compra);
+
+    localStorage.setItem(&#x27;compras&#x27;, JSON.stringify(compras));
+    localStorage.removeItem(&#x27;carrito&#x27;);
+
+    this.carrito &#x3D; [];
+    this.total &#x3D; 0;
+
+    this.router.navigate([&#x27;/mis-compras&#x27;]);
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;carrito-page&quot;&gt;
+  &lt;header class&#x3D;&quot;navbar&quot;&gt;
+    &lt;div&gt;
+      &lt;h1&gt;NortLAB&lt;/h1&gt;
+      &lt;p&gt;Carrito de compras&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;nav&gt;
+      &lt;a routerLink&#x3D;&quot;/inicio&quot;&gt;Inicio&lt;/a&gt;
+      &lt;a routerLink&#x3D;&quot;/productos&quot;&gt;Catálogo&lt;/a&gt;
+      &lt;a routerLink&#x3D;&quot;/carrito&quot;&gt;Carrito&lt;/a&gt;
+      &lt;a routerLink&#x3D;&quot;/mis-compras&quot;&gt;Mis compras&lt;/a&gt;
+      &lt;a routerLink&#x3D;&quot;/perfil&quot;&gt;Perfil&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main class&#x3D;&quot;container&quot;&gt;
+    &lt;section class&#x3D;&quot;page-title&quot;&gt;
+      &lt;span class&#x3D;&quot;tag&quot;&gt;Compra simulada&lt;/span&gt;
+      &lt;h2&gt;Carrito de compras&lt;/h2&gt;
+      &lt;p&gt;
+        Revisa los juegos agregados antes de finalizar la compra.
+      &lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section class&#x3D;&quot;empty-cart&quot; *ngIf&#x3D;&quot;carrito.length &#x3D;&#x3D;&#x3D; 0&quot;&gt;
+      &lt;h3&gt;Tu carrito está vacío&lt;/h3&gt;
+      &lt;p&gt;Agrega juegos desde el catálogo para continuar.&lt;/p&gt;
+      &lt;a routerLink&#x3D;&quot;/productos&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Ver catálogo&lt;/a&gt;
+    &lt;/section&gt;
+
+    &lt;section class&#x3D;&quot;cart-layout&quot; *ngIf&#x3D;&quot;carrito.length &gt; 0&quot;&gt;
+      &lt;div class&#x3D;&quot;cart-items&quot;&gt;
+        &lt;article class&#x3D;&quot;cart-card&quot; *ngFor&#x3D;&quot;let item of carrito&quot;&gt;
+          &lt;div class&#x3D;&quot;item-icon&quot;&gt;{{ item.imagen }}&lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;item-info&quot;&gt;
+            &lt;span&gt;{{ item.categoria }}&lt;/span&gt;
+            &lt;h3&gt;{{ item.nombre }}&lt;/h3&gt;
+            &lt;p&gt;{{ item.descripcion }}&lt;/p&gt;
+            &lt;strong&gt;${{ item.precio }}&lt;/strong&gt;
+          &lt;/div&gt;
+
+          &lt;div class&#x3D;&quot;item-actions&quot;&gt;
+            &lt;div class&#x3D;&quot;quantity&quot;&gt;
+              &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;disminuirCantidad(item)&quot;&gt;-&lt;/button&gt;
+              &lt;span&gt;{{ item.cantidad }}&lt;/span&gt;
+              &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;aumentarCantidad(item)&quot;&gt;+&lt;/button&gt;
+            &lt;/div&gt;
+
+            &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-delete&quot; (click)&#x3D;&quot;eliminarProducto(item.id)&quot;&gt;
+              Eliminar
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/article&gt;
+      &lt;/div&gt;
+
+      &lt;aside class&#x3D;&quot;summary&quot;&gt;
+        &lt;h3&gt;Resumen&lt;/h3&gt;
+
+        &lt;div class&#x3D;&quot;summary-row&quot;&gt;
+          &lt;span&gt;Productos&lt;/span&gt;
+          &lt;strong&gt;{{ carrito.length }}&lt;/strong&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;summary-row total&quot;&gt;
+          &lt;span&gt;Total&lt;/span&gt;
+          &lt;strong&gt;${{ total }}&lt;/strong&gt;
+        &lt;/div&gt;
+
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;finalizarCompra()&quot;&gt;
+          Finalizar compra
+        &lt;/button&gt;
+
+        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary&quot; (click)&#x3D;&quot;vaciarCarrito()&quot;&gt;
+          Vaciar carrito
+        &lt;/button&gt;
+      &lt;/aside&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./carrito.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.carrito-page {
+  min-height: 100vh;
+  background: #f4efe7;
+  color: #2b1b12;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background: #5b2c1b;
+  color: #ffffff;
+  padding: 22px 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.navbar p {
+  margin: 6px 0 0;
+  color: #f5d7b0;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.container {
+  width: 84%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 42px 0;
+}
+
+.page-title,
+.empty-cart,
+.cart-card,
+.summary {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(60, 35, 18, 0.12);
+}
+
+.page-title {
+  padding: 34px;
+  margin-bottom: 28px;
+}
+
+.tag {
+  display: inline-block;
+  background: #f2b36d;
+  color: #4a2415;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.page-title h2 {
+  margin: 0 0 12px;
+  font-size: 34px;
+}
+
+.empty-cart {
+  padding: 36px;
+  text-align: center;
+}
+
+.cart-layout {
+  display: grid;
+  grid-template-columns: 8fr 4fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cart-card {
+  padding: 22px;
+  display: grid;
+  grid-template-columns: 1fr 7fr 4fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.item-icon {
+  background: #ead7c2;
+  border-radius: 14px;
+  font-size: 42px;
+  text-align: center;
+  padding: 20px;
+}
+
+.item-info span {
+  color: #8a4b24;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.item-info h3 {
+  margin: 8px 0;
+}
+
+.item-info p {
+  color: #665044;
+}
+
+.item-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-end;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.quantity button {
+  width: 34px;
+  height: 34px;
+  border: none;
+  background: #8a4b24;
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.quantity span {
+  font-weight: 700;
+}
+
+.btn-delete {
+  border: none;
+  background: #b42318;
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.summary {
+  padding: 28px;
+  position: sticky;
+  top: 24px;
+}
+
+.summary h3 {
+  margin-top: 0;
+  font-size: 26px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 18px 0;
+}
+
+.total {
+  border-top: 1px solid #ead7c2;
+  padding-top: 18px;
+  font-size: 20px;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 13px 18px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary {
+  border: none;
+  background: #8a4b24;
+  color: #ffffff;
+}
+
+.btn-secondary {
+  border: 2px solid #8a4b24;
+  background: #ffffff;
+  color: #8a4b24;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cart-layout {
+    grid-template-columns: 12fr;
+  }
+
+  .cart-card {
+    grid-template-columns: 2fr 6fr 4fr;
+  }
+}
+
+/* Móvil */
+@media (max-width: 576px) {
+  .container {
+    width: 92%;
+    padding: 26px 0;
+  }
+
+  .navbar {
+    padding: 20px;
+  }
+
+  .navbar nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .page-title {
+    padding: 26px;
+  }
+
+  .cart-card {
+    grid-template-columns: 12fr;
+    text-align: center;
+  }
+
+  .item-actions {
+    align-items: center;
+  }
+
+  .summary {
+    position: static;
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="carrito-page">  <header class="navbar">    <div>      <h1>NortLAB</h1>      <p>Carrito de compras</p>    </div>    <nav>      <a routerLink="/inicio">Inicio</a>      <a routerLink="/productos">Catálogo</a>      <a routerLink="/carrito">Carrito</a>      <a routerLink="/mis-compras">Mis compras</a>      <a routerLink="/perfil">Perfil</a>    </nav>  </header>  <main class="container">    <section class="page-title">      <span class="tag">Compra simulada</span>      <h2>Carrito de compras</h2>      <p>        Revisa los juegos agregados antes de finalizar la compra.      </p>    </section>    <section class="empty-cart" *ngIf="carrito.length === 0">      <h3>Tu carrito está vacío</h3>      <p>Agrega juegos desde el catálogo para continuar.</p>      <a routerLink="/productos" class="btn btn-primary">Ver catálogo</a>    </section>    <section class="cart-layout" *ngIf="carrito.length > 0">      <div class="cart-items">        <article class="cart-card" *ngFor="let item of carrito">          <div class="item-icon">{{ item.imagen }}</div>          <div class="item-info">            <span>{{ item.categoria }}</span>            <h3>{{ item.nombre }}</h3>            <p>{{ item.descripcion }}</p>            <strong>${{ item.precio }}</strong>          </div>          <div class="item-actions">            <div class="quantity">              <button type="button" (click)="disminuirCantidad(item)">-</button>              <span>{{ item.cantidad }}</span>              <button type="button" (click)="aumentarCantidad(item)">+</button>            </div>            <button type="button" class="btn-delete" (click)="eliminarProducto(item.id)">              Eliminar            </button>          </div>        </article>      </div>      <aside class="summary">        <h3>Resumen</h3>        <div class="summary-row">          <span>Productos</span>          <strong>{{ carrito.length }}</strong>        </div>        <div class="summary-row total">          <span>Total</span>          <strong>${{ total }}</strong>        </div>        <button type="button" class="btn btn-primary" (click)="finalizarCompra()">          Finalizar compra        </button>        <button type="button" class="btn btn-secondary" (click)="vaciarCarrito()">          Vaciar carrito        </button>      </aside>    </section>  </main></div></div>'
+    var COMPONENTS = [{'name': 'Admin', 'selector': 'app-admin'},{'name': 'AdminProductos', 'selector': 'app-admin-productos'},{'name': 'AdminUsuarios', 'selector': 'app-admin-usuarios'},{'name': 'App', 'selector': 'app-root'},{'name': 'Carrito', 'selector': 'app-carrito'},{'name': 'Inicio', 'selector': 'app-inicio'},{'name': 'Login', 'selector': 'app-login'},{'name': 'MisCompras', 'selector': 'app-mis-compras'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Productos', 'selector': 'app-productos'},{'name': 'Recuperar', 'selector': 'app-recuperar'},{'name': 'Registro', 'selector': 'app-registro'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'Carrito'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'Carrito.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var updateDarkModeSwitchOffset = function () {
+                    var content = document.querySelector('.content');
+                    var scrollbarWidth = 0;
+
+                    if (content) {
+                         scrollbarWidth = Math.max(0, content.offsetWidth - content.clientWidth);
+                    }
+
+                    document.documentElement.style.setProperty(
+                         '--content-scrollbar-width',
+                         scrollbarWidth + 'px'
+                    );
+               };
+
+               updateDarkModeSwitchOffset();
+               requestAnimationFrame(updateDarkModeSwitchOffset);
+               window.addEventListener('resize', updateDarkModeSwitchOffset);
+
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

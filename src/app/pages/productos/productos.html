@@ -1,0 +1,53 @@
+<div class="productos-page">
+  <header class="navbar">
+    <div>
+      <h1>NortLAB</h1>
+      <p>Catálogo de juegos educativos</p>
+    </div>
+
+    <nav>
+      <a routerLink="/inicio">Inicio</a>
+      <a routerLink="/productos">Catálogo</a>
+      <a routerLink="/carrito">Carrito</a>
+      <a routerLink="/mis-compras">Mis compras</a>
+      <a routerLink="/perfil">Perfil</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="page-title">
+      <span class="tag">Catálogo</span>
+      <h2>Productos / Juegos</h2>
+      <p>
+        Explora nuestros juegos de mesa educativos inspirados en las culturas
+        del norte de Chile.
+      </p>
+    </section>
+
+    <section class="productos-grid">
+      <article class="producto-card" *ngFor="let juego of juegos">
+        <div class="producto-icon">{{ juego.imagen }}</div>
+
+        <div class="producto-content">
+          <span class="categoria">{{ juego.categoria }}</span>
+          <h3>{{ juego.nombre }}</h3>
+          <p>{{ juego.descripcion }}</p>
+
+          <div class="producto-info">
+            <strong>${{ juego.precio }}</strong>
+            <span *ngIf="juego.stock > 0">Stock: {{ juego.stock }}</span>
+            <span *ngIf="juego.stock === 0" class="sin-stock">Sin stock</span>
+          </div>
+
+          <button
+            type="button"
+            class="btn-agregar"
+            [disabled]="juego.stock === 0"
+            (click)="agregarAlCarrito(juego)">
+            Agregar al carrito
+          </button>
+        </div>
+      </article>
+    </section>
+  </main>
+</div>

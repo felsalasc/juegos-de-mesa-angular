@@ -83,3 +83,63 @@ button.limpiar:hover {
 a {
   color: #2563eb;
 }
+/* ===========================
+   Tablet (hasta 992px)
+=========================== */
+
+@media (max-width: 992px) {
+
+  .registro-card {
+    max-width: 600px;
+    padding: 24px;
+  }
+
+  h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .botones {
+    gap: 10px;
+  }
+
+}
+
+/* ===========================
+   Móvil (hasta 576px)
+=========================== */
+
+@media (max-width: 576px) {
+
+  .registro-page {
+    padding: 16px;
+    align-items: flex-start;
+  }
+
+  .registro-card {
+    max-width: 100%;
+    padding: 22px;
+    margin-top: 20px;
+    border-radius: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  input,
+  button {
+    font-size: 15px;
+  }
+
+  .botones {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  button {
+    width: 100%;
+  }
+
+}
