@@ -238,3 +238,36 @@ td {
     width: 100%;
   }
 }
+
+.mensaje {
+  margin-bottom: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.mensaje-info {
+  background: #e8f1ff;
+  color: #194d8a;
+}
+
+.mensaje-exito {
+  background: #e7f7ec;
+  color: #236b3b;
+}
+
+.mensaje-error {
+  background: #fdeaea;
+  color: #9c2525;
+}
+
+.sin-productos {
+  padding: 1.25rem;
+  text-align: center;
+  color: #6b625c;
+}
+
+.sin-stock {
+  color: #a82f2f;
+  font-weight: 700;
+}

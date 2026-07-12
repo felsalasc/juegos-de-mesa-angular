@@ -1,0 +1,87 @@
+{
+  "productos": [
+    {
+      "nombre": "Memoria Diaguita",
+      "categoria": "Cultura Diaguita",
+      "descripcion": "Juego de memoria basado en símbolos y cerámicas diaguitas.",
+      "precio": 12990,
+      "stock": 10,
+      "imagen": "🏺",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "nombre": "Ruta Changa",
+      "categoria": "Cultura Changa",
+      "descripcion": "Juego de estrategia sobre navegación, pesca y vida costera.",
+      "precio": 14990,
+      "stock": 8,
+      "imagen": "🌊"
+    },
+    {
+      "nombre": "Aventura Atacameña",
+      "categoria": "Cultura Atacameña",
+      "descripcion": "uego educativo sobre pueblos andinos, comercio y territorio.",
+      "precio": 16990,
+      "stock": 6,
+      "imagen": "⛰️",
+      "id": 3
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Administrador NortLAB",
+      "email": "admin@nortlab.cl",
+      "password": "Admin123!",
+      "rol": "admin",
+      "activo": true
+    },
+    {
+      "id": 2,
+      "nombre": "Usuario Demo Felipe",
+      "email": "usuario@nortlab.cl",
+      "password": "Usuario123!",
+      "rol": "cliente",
+      "activo": true
+    }
+  ],
+  "compras": [
+    {
+      "usuarioEmail": "fasc86@gmail.com",
+      "fecha": "2026-07-12T17:27:06.070Z",
+      "productos": [
+        {
+          "productoId": 1,
+          "nombre": "Memoria Diaguita",
+          "precio": 12990,
+          "cantidad": 1,
+          "imagen": "🏺",
+          "categoria": "Cultura Diaguita",
+          "descripcion": "Juego de memoria basado en símbolos y cerámicas diaguitas."
+        }
+      ],
+      "total": 12990,
+      "estado": "Pagada",
+      "id": 1
+    },
+    {
+      "usuarioEmail": "fasc86@gmail.com",
+      "fecha": "2026-07-12T17:27:41.507Z",
+      "productos": [
+        {
+          "productoId": 2,
+          "nombre": "Ruta Changa",
+          "precio": 14990,
+          "cantidad": 1,
+          "imagen": "🌊",
+          "categoria": "Cultura Changa",
+          "descripcion": "Juego de estrategia sobre navegación, pesca y vida costera."
+        }
+      ],
+      "total": 14990,
+      "estado": "Pagada",
+      "id": 2
+    }
+  ]
+}

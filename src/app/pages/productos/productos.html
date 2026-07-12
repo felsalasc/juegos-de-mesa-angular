@@ -23,31 +23,49 @@
         del norte de Chile.
       </p>
     </section>
+<section class="productos-grid">
+  <article
+    class="producto-card"
+    *ngFor="let juego of juegos">
 
-    <section class="productos-grid">
-      <article class="producto-card" *ngFor="let juego of juegos">
-        <div class="producto-icon">{{ juego.imagen }}</div>
+    <div class="producto-icon">
+      {{ juego.imagen }}
+    </div>
 
-        <div class="producto-content">
-          <span class="categoria">{{ juego.categoria }}</span>
-          <h3>{{ juego.nombre }}</h3>
-          <p>{{ juego.descripcion }}</p>
+    <div class="producto-content">
+      <span class="categoria">
+        {{ juego.categoria }}
+      </span>
 
-          <div class="producto-info">
-            <strong>${{ juego.precio }}</strong>
-            <span *ngIf="juego.stock > 0">Stock: {{ juego.stock }}</span>
-            <span *ngIf="juego.stock === 0" class="sin-stock">Sin stock</span>
-          </div>
+      <h3>{{ juego.nombre }}</h3>
 
-          <button
-            type="button"
-            class="btn-agregar"
-            [disabled]="juego.stock === 0"
-            (click)="agregarAlCarrito(juego)">
-            Agregar al carrito
-          </button>
-        </div>
-      </article>
-    </section>
+      <p>{{ juego.descripcion }}</p>
+
+      <div class="producto-info">
+        <strong>
+          ${{ juego.precio }}
+        </strong>
+
+        <span *ngIf="juego.stock > 0">
+          Stock: {{ juego.stock }}
+        </span>
+
+        <span
+          *ngIf="juego.stock === 0"
+          class="sin-stock">
+          Sin stock
+        </span>
+      </div>
+
+      <button
+        type="button"
+        class="btn-agregar"
+        [disabled]="juego.stock === 0"
+        (click)="agregarAlCarrito(juego)">
+        Agregar al carrito
+      </button>
+    </div>
+  </article>
+</section>
   </main>
 </div>

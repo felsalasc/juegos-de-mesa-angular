@@ -17,60 +17,139 @@
   <main class="container">
     <section class="page-title">
       <span class="tag">Administrador</span>
+
       <h2>Registro y modificación de productos</h2>
+
       <p>
         Mantén actualizado el catálogo de juegos educativos disponibles en NortLAB.
       </p>
     </section>
 
+    <div class="mensaje mensaje-info" *ngIf="cargando">
+      Cargando productos desde la API...
+    </div>
+
+    <div class="mensaje mensaje-exito" *ngIf="mensaje">
+      {{ mensaje }}
+    </div>
+
+    <div class="mensaje mensaje-error" *ngIf="error">
+      {{ error }}
+    </div>
+
     <section class="admin-layout">
-      <form class="form-card" [formGroup]="productoForm" (ngSubmit)="guardar()">
-        <h3>{{ editandoId ? 'Editar producto' : 'Nuevo producto' }}</h3>
+      <form
+        class="form-card"
+        [formGroup]="productoForm"
+        (ngSubmit)="guardar()">
 
-        <label>Nombre</label>
-        <input type="text" formControlName="nombre">
-        <small *ngIf="campoInvalido('nombre')">El nombre debe tener al menos 3 caracteres.</small>
+        <h3>
+          {{ editandoId !== null ? 'Editar producto' : 'Nuevo producto' }}
+        </h3>
 
-        <label>Categoría</label>
-        <select formControlName="categoria">
+        <label for="nombre">Nombre</label>
+
+        <input
+          id="nombre"
+          type="text"
+          formControlName="nombre">
+
+        <small *ngIf="campoInvalido('nombre')">
+          El nombre debe tener al menos 3 caracteres.
+        </small>
+
+        <label for="categoria">Categoría</label>
+
+        <select
+          id="categoria"
+          formControlName="categoria">
+
           <option value="">Seleccione una categoría</option>
           <option value="Cultura Diaguita">Cultura Diaguita</option>
           <option value="Cultura Changa">Cultura Changa</option>
           <option value="Cultura Atacameña">Cultura Atacameña</option>
+          <option value="Cultura Mapuche">Cultura Mapuche</option>
           <option value="Patrimonio Cultural">Patrimonio Cultural</option>
         </select>
-        <small *ngIf="campoInvalido('categoria')">La categoría es obligatoria.</small>
 
-        <label>Descripción</label>
-        <textarea rows="4" formControlName="descripcion"></textarea>
-        <small *ngIf="campoInvalido('descripcion')">La descripción debe tener al menos 10 caracteres.</small>
+        <small *ngIf="campoInvalido('categoria')">
+          La categoría es obligatoria.
+        </small>
 
-        <label>Precio</label>
-        <input type="number" formControlName="precio">
-        <small *ngIf="campoInvalido('precio')">El precio debe ser mayor o igual a 1000.</small>
+        <label for="descripcion">Descripción</label>
 
-        <label>Stock</label>
-        <input type="number" formControlName="stock">
-        <small *ngIf="campoInvalido('stock')">El stock no puede ser negativo.</small>
+        <textarea
+          id="descripcion"
+          rows="4"
+          formControlName="descripcion">
+        </textarea>
 
-        <label>Icono</label>
-        <select formControlName="imagen">
+        <small *ngIf="campoInvalido('descripcion')">
+          La descripción debe tener al menos 10 caracteres.
+        </small>
+
+        <label for="precio">Precio</label>
+
+        <input
+          id="precio"
+          type="number"
+          min="1000"
+          formControlName="precio">
+
+        <small *ngIf="campoInvalido('precio')">
+          El precio debe ser mayor o igual a 1000.
+        </small>
+
+        <label for="stock">Stock</label>
+
+        <input
+          id="stock"
+          type="number"
+          min="0"
+          formControlName="stock">
+
+        <small *ngIf="campoInvalido('stock')">
+          El stock no puede ser negativo.
+        </small>
+
+        <label for="imagen">Icono</label>
+
+        <select
+          id="imagen"
+          formControlName="imagen">
+
           <option value="🎲">🎲 Juego</option>
           <option value="🏺">🏺 Diaguita</option>
           <option value="🌊">🌊 Changa</option>
           <option value="⛰️">⛰️ Atacameña</option>
+          <option value="🛡️">🛡️ Mapuche</option>
           <option value="🧭">🧭 Exploradores</option>
         </select>
 
-        <p class="mensaje" *ngIf="mensaje">{{ mensaje }}</p>
-
         <div class="form-actions">
-          <button type="submit" class="btn btn-primary">
-            {{ editandoId ? 'Actualizar' : 'Guardar' }}
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="cargando">
+
+            {{ editandoId !== null ? 'Actualizar' : 'Guardar' }}
           </button>
 
-          <button type="button" class="btn btn-secondary" (click)="limpiarFormulario()">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="limpiarFormulario()">
+
             Limpiar
+          </button>
+
+          <button
+            *ngIf="editandoId !== null"
+            type="button"
+            class="btn btn-secondary"
+            (click)="cancelarEdicion()">
+
+            Cancelar edición
           </button>
         </div>
       </form>
@@ -78,7 +157,17 @@
       <section class="table-card">
         <h3>Listado de productos</h3>
 
-        <div class="table-responsive">
+        <div
+          class="sin-productos"
+          *ngIf="!cargando && productos.length === 0">
+
+          No hay productos registrados.
+        </div>
+
+        <div
+          class="table-responsive"
+          *ngIf="productos.length > 0">
+
           <table>
             <thead>
               <tr>
@@ -94,16 +183,42 @@
             <tbody>
               <tr *ngFor="let producto of productos">
                 <td>{{ producto.imagen }}</td>
+
                 <td>{{ producto.nombre }}</td>
+
                 <td>{{ producto.categoria }}</td>
-                <td>${{ producto.precio }}</td>
-                <td>{{ producto.stock }}</td>
+
                 <td>
-                  <button type="button" class="btn-table edit" (click)="editar(producto)">
+                  {{ producto.precio | currency:'CLP':'symbol-narrow':'1.0-0' }}
+                </td>
+
+                <td>
+                  <span *ngIf="producto.stock > 0">
+                    {{ producto.stock }}
+                  </span>
+
+                  <span
+                    *ngIf="producto.stock === 0"
+                    class="sin-stock">
+
+                    Sin stock
+                  </span>
+                </td>
+
+                <td>
+                  <button
+                    type="button"
+                    class="btn-table edit"
+                    (click)="editar(producto)">
+
                     Editar
                   </button>
 
-                  <button type="button" class="btn-table delete" (click)="eliminar(producto.id)">
+                  <button
+                    type="button"
+                    class="btn-table delete"
+                    (click)="eliminar(producto.id)">
+
                     Eliminar
                   </button>
                 </td>

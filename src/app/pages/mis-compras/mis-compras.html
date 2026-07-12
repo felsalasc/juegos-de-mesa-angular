@@ -17,47 +17,126 @@
   <main class="container">
     <section class="page-title">
       <span class="tag">Usuario</span>
+
       <h2>Mis compras</h2>
+
       <p>
         Revisa el historial de compras realizadas en la tienda NortLAB.
       </p>
     </section>
 
-    <section class="empty" *ngIf="compras.length === 0">
+    <div
+      *ngIf="cargando"
+      class="mensaje mensaje-info">
+      Cargando compras desde la API...
+    </div>
+
+    <div
+      *ngIf="mensaje"
+      class="mensaje mensaje-exito">
+      {{ mensaje }}
+    </div>
+
+    <div
+      *ngIf="error"
+      class="mensaje mensaje-error">
+      {{ error }}
+    </div>
+
+    <section
+      class="empty"
+      *ngIf="!cargando && !error && compras.length === 0">
+
       <h3>No tienes compras registradas</h3>
-      <p>Finaliza una compra desde el carrito para verla en esta sección.</p>
-      <a routerLink="/productos" class="btn btn-primary">Ver catálogo</a>
+
+      <p>
+        Finaliza una compra desde el carrito para verla en esta sección.
+      </p>
+
+      <a
+        routerLink="/productos"
+        class="btn btn-primary">
+        Ver catálogo
+      </a>
     </section>
 
-    <section class="compras-list" *ngIf="compras.length > 0">
-      <article class="compra-card" *ngFor="let compra of compras">
+    <section
+      class="compras-list"
+      *ngIf="!cargando && compras.length > 0">
+
+      <article
+        class="compra-card"
+        *ngFor="let compra of compras">
+
         <div class="compra-header">
           <div>
-            <span class="compra-id">Compra #{{ compra.id }}</span>
-            <h3>Estado: {{ compra.estado }}</h3>
-            <p>Fecha: {{ compra.fecha }}</p>
+            <span class="compra-id">
+              Compra #{{ compra.id }}
+            </span>
+
+            <h3>
+              Estado: {{ compra.estado }}
+            </h3>
+
+            <p>
+              Fecha:
+              {{ compra.fecha | date:'dd/MM/yyyy HH:mm' }}
+            </p>
+
+            <p>
+              Usuario: {{ compra.usuarioEmail }}
+            </p>
           </div>
 
-          <strong class="total">${{ compra.total }}</strong>
+          <strong class="total">
+            {{ compra.total | currency:'CLP':'symbol-narrow':'1.0-0' }}
+          </strong>
         </div>
 
         <div class="productos">
-          <div class="producto" *ngFor="let producto of compra.productos">
-            <span class="icon">{{ producto.imagen }}</span>
+          <div
+            class="producto"
+            *ngFor="let producto of compra.productos">
+
+            <span class="icon">
+              {{ producto.imagen }}
+            </span>
 
             <div>
-              <h4>{{ producto.nombre }}</h4>
-              <p>{{ producto.categoria }}</p>
+              <h4>
+                {{ producto.nombre }}
+              </h4>
+
               <small>
-                Cantidad: {{ producto.cantidad }} |
-                Precio unitario: ${{ producto.precio }}
+                Cantidad: {{ producto.cantidad }}
+              </small>
+
+              <br>
+
+              <small>
+                Precio unitario:
+                {{ producto.precio | currency:'CLP':'symbol-narrow':'1.0-0' }}
+              </small>
+
+              <br>
+
+              <small>
+                Subtotal:
+                {{
+                  producto.precio * producto.cantidad
+                    | currency:'CLP':'symbol-narrow':'1.0-0'
+                }}
               </small>
             </div>
           </div>
         </div>
       </article>
 
-      <button type="button" class="btn btn-secondary" (click)="limpiarHistorial()">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="limpiarHistorial()">
+
         Limpiar historial
       </button>
     </section>

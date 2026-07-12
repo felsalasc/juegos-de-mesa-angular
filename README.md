@@ -1,59 +1,217 @@
-# JuegosDeMesaAngular
+# NortLAB - Juegos de Mesa Educativos
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.16.
+Aplicación web desarrollada con **Angular 21** para la gestión de un catálogo de juegos de mesa educativos inspirados en las culturas del norte de Chile.
 
-## Development server
+El proyecto implementa una arquitectura basada en componentes Standalone, Formularios Reactivos y consumo de una API REST simulada mediante **JSON Server**.
 
-To start a local development server, run:
+---
+
+# Tecnologías utilizadas
+
+- Angular 21
+- TypeScript
+- HTML5
+- CSS3
+- Angular Router
+- Reactive Forms
+- HttpClient
+- JSON Server (API REST)
+- Docker
+- Nginx
+
+---
+
+# Funcionalidades
+
+## Usuarios
+
+- Inicio de sesión
+- Registro de usuarios
+- Recuperación de contraseña
+- Perfil de usuario
+
+## Catálogo
+
+- Listado de productos
+- Detalle de productos
+- Carrito de compras
+- Historial de compras
+
+## Administración
+
+- CRUD de productos
+- CRUD de usuarios
+
+---
+
+# Arquitectura
+
+La aplicación utiliza una arquitectura por capas:
+
+```
+Componentes
+      │
+      ▼
+Servicios (HttpClient)
+      │
+      ▼
+API REST (JSON Server)
+      │
+      ▼
+db.json
+```
+
+Toda la información se consume mediante servicios Angular.
+
+---
+
+# API REST
+
+La API se encuentra simulada utilizando **JSON Server**.
+
+Endpoints disponibles:
+
+```
+GET    /productos
+POST   /productos
+PUT    /productos/:id
+DELETE /productos/:id
+
+GET    /usuarios
+POST   /usuarios
+PUT    /usuarios/:id
+DELETE /usuarios/:id
+
+GET    /compras
+POST   /compras
+DELETE /compras/:id
+```
+
+---
+
+# Ejecución en desarrollo
+
+Instalar dependencias
+
+```bash
+npm install
+```
+
+Levantar Angular
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Levantar la API
 
 ```bash
-ng generate component component-name
+npx json-server --watch db.json --port 3001
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+La aplicación estará disponible en:
 
-```bash
-ng generate --help
+```
+http://localhost:4200
 ```
 
-## Building
+La API REST estará disponible en:
 
-To build the project run:
+```
+http://localhost:3001
+```
+
+---
+
+# Construcción
+
+Generar la versión de producción
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Los archivos compilados se almacenan en:
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
+```
+dist/juegos-de-mesa-angular/browser
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+# Docker
+
+Construir la imagen
 
 ```bash
-ng e2e
+docker build -t nortlab-angular .
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Ejecutar el contenedor
 
-## Additional Resources
+```bash
+docker run -d --name nortlab -p 8080:80 nortlab-angular
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+La aplicación quedará disponible en:
+
+```
+http://localhost:8080
+```
+
+---
+
+# Docker Compose
+
+Para ejecutar Angular y la API REST mediante Docker:
+
+```bash
+docker compose up --build
+```
+
+Servicios disponibles
+
+```
+Angular
+http://localhost:8080
+
+API REST
+http://localhost:3001
+```
+
+---
+
+# Estructura del proyecto
+
+```
+src/
+│
+├── app/
+│   ├── models/
+│   ├── services/
+│   ├── pages/
+│   │   ├── admin/
+│   │   ├── productos/
+│   │   ├── carrito/
+│   │   ├── login/
+│   │   ├── registro/
+│   │   ├── perfil/
+│   │   └── mis-compras/
+│   └── app.routes.ts
+│
+├── assets/
+│
+db.json
+Dockerfile
+Dockerfile.api
+docker-compose.yml
+nginx.conf
+```
+
+---
+
+# Autor
+
+**Felipe Salas Cordero**
+
+Proyecto desarrollado para la asignatura **Desarrollo Full Stack II** – Duoc UC.

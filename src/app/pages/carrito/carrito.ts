@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
+
+import { Compra, CompraProducto } from '../../models/compra';
+import { ComprasService } from '../../services/compras.service';
+
 
 @Component({
   selector: 'app-carrito',
@@ -10,82 +15,152 @@ import { RouterLink, Router } from '@angular/router';
   styleUrl: './carrito.css'
 })
 export class Carrito implements OnInit {
-  carrito: any[] = [];
+
+  carrito: Array<CompraProducto & { id?: number }> = [];
   total = 0;
 
-  constructor(private router: Router) {}
+  procesandoCompra = false;
+  mensaje = '';
+  error = '';
+
+  constructor(
+    private router: Router,
+    private comprasService: ComprasService
+  ) {}
 
   ngOnInit(): void {
     this.cargarCarrito();
   }
 
   cargarCarrito(): void {
-    this.carrito = JSON.parse(localStorage.getItem('carrito') || '[]');
+    this.carrito = JSON.parse(
+      localStorage.getItem('carrito') || '[]'
+    );
+
     this.calcularTotal();
   }
 
   calcularTotal(): void {
-    this.total = this.carrito.reduce((sum: number, item: any) => {
-      return sum + item.precio * item.cantidad;
-    }, 0);
+    this.total = this.carrito.reduce(
+      (sum: number, item: CompraProducto) =>
+        sum + item.precio * item.cantidad,
+      0
+    );
   }
 
-  aumentarCantidad(item: any): void {
+  aumentarCantidad(item: CompraProducto): void {
     item.cantidad += 1;
     this.guardarCarrito();
   }
 
-  disminuirCantidad(item: any): void {
+  disminuirCantidad(item: CompraProducto): void {
     if (item.cantidad > 1) {
       item.cantidad -= 1;
     } else {
-      this.eliminarProducto(item.id);
+      this.eliminarProducto(item.productoId);
       return;
     }
 
     this.guardarCarrito();
   }
 
-  eliminarProducto(id: number): void {
-    this.carrito = this.carrito.filter((item: any) => item.id !== id);
-    this.guardarCarrito();
+eliminarProducto(productoId: number | undefined): void {
+  if (productoId === undefined) {
+    this.error = 'No se pudo identificar el producto.';
+    return;
   }
+
+  this.carrito = this.carrito.filter(
+    (item: CompraProducto & { id?: number }) =>
+      (item.productoId ?? item.id) !== productoId
+  );
+
+  this.guardarCarrito();
+}
 
   vaciarCarrito(): void {
     this.carrito = [];
     this.guardarCarrito();
+
+    this.mensaje = 'Carrito vaciado correctamente.';
+    this.error = '';
   }
 
   guardarCarrito(): void {
-    localStorage.setItem('carrito', JSON.stringify(this.carrito));
+    localStorage.setItem(
+      'carrito',
+      JSON.stringify(this.carrito)
+    );
+
     this.calcularTotal();
   }
 
   finalizarCompra(): void {
+    this.mensaje = '';
+    this.error = '';
+
     if (this.carrito.length === 0) {
+      this.error = 'El carrito está vacío.';
       return;
     }
 
-    const usuarioActivo = JSON.parse(localStorage.getItem('usuarioActivo') || 'null');
+    const usuarioActivo = JSON.parse(
+      localStorage.getItem('usuarioActivo') || 'null'
+    );
 
-    const compra = {
-      id: Date.now(),
-      fecha: new Date().toLocaleDateString('es-CL'),
-      usuario: usuarioActivo?.email || 'invitado',
-      productos: this.carrito,
+    if (!usuarioActivo?.email) {
+      this.error = 'Debes iniciar sesión para finalizar la compra.';
+      return;
+    }
+
+      const productosCompra: CompraProducto[] = this.carrito.map(
+      (item: any) => ({
+        productoId: item.productoId ?? item.id,
+        nombre: item.nombre,
+        precio: Number(item.precio),
+        cantidad: Number(item.cantidad),
+        imagen: item.imagen,
+        categoria: item.categoria,
+        descripcion: item.descripcion
+      })
+    );
+
+    const compra: Compra = {
+      usuarioId: usuarioActivo.id,
+      usuarioEmail: usuarioActivo.email,
+      fecha: new Date().toISOString(),
+      productos: productosCompra,
       total: this.total,
-      estado: 'Pagado'
+      estado: 'Pagada'
     };
 
-    const compras = JSON.parse(localStorage.getItem('compras') || '[]');
-    compras.push(compra);
+    this.procesandoCompra = true;
 
-    localStorage.setItem('compras', JSON.stringify(compras));
-    localStorage.removeItem('carrito');
+    this.comprasService.crearCompra(compra).subscribe({
+      next: (compraCreada: Compra) => {
+        console.log('Compra registrada en la API:', compraCreada);
 
-    this.carrito = [];
-    this.total = 0;
+        localStorage.removeItem('carrito');
 
-    this.router.navigate(['/mis-compras']);
+        this.carrito = [];
+        this.total = 0;
+        this.procesandoCompra = false;
+
+        this.router.navigate(['/mis-compras']);
+      },
+      error: (error: HttpErrorResponse) => {
+        console.error('Error al registrar la compra:', error);
+
+        this.error = 'No fue posible registrar la compra.';
+        this.procesandoCompra = false;
+      }
+    });
   }
+  get totalUnidades(): number {
+  return this.carrito.reduce(
+    (total: number, item: CompraProducto) =>
+      total + Number(item.cantidad),
+    0
+  );
+}
 }
