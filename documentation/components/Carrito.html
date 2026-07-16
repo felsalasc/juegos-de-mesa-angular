@@ -268,6 +268,18 @@
                             </li>
                             <li>
                                 <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
+                                <a href="#error" >error</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
+                                <a href="#mensaje" >mensaje</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
+                                <a href="#procesandoCompra" >procesandoCompra</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
                                 <a href="#total" >total</a>
                             </li>
                         </ul>
@@ -330,6 +342,23 @@
 
 
 
+        <table class="table table-sm table-bordered index-table">
+            <tbody>
+                <tr>
+                    <td class="col-md-3">
+                        <h6><b>Accessors</b></h6>
+                    </td>
+                    <td class="col-md-9">
+                        <ul class="index-list">
+                            <li>
+                                <span class="reference-badge reference-badge--accessor" aria-hidden="true">A</span>
+                                <a href="#totalUnidades" >totalUnidades</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 </section>
 
     <section data-compodoc="block-constructor">
@@ -338,12 +367,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(router: <a href="https://angular.dev/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(router: <a href="https://angular.dev/api/router/Router" target="_blank">Router</a>, comprasService: <a href="../injectables/ComprasService.html" target="_self">ComprasService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/pages/carrito/carrito.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/carrito/carrito.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -365,6 +394,18 @@
                                                   
                                                         <td>
                                                                         <code><a href="https://angular.dev/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>comprasService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ComprasService.html" target="_self" >ComprasService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -403,15 +444,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>aumentarCantidad(item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+<code>aumentarCantidad(item: <a href="../interfaces/CompraProducto.html" target="_self">CompraProducto</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="33"
-                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:33</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:51</a></div>
                         </td>
                     </tr>
 
@@ -434,7 +475,7 @@
                                         <tr>
                                                 <td>item</td>
                                             <td>
-                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                            <code><a href="../interfaces/CompraProducto.html" target="_self" >CompraProducto</a></code>
                                             </td>
 
                                             <td>
@@ -477,8 +518,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="27"
-                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:27</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:43</a></div>
                         </td>
                     </tr>
 
@@ -514,8 +555,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="22"
-                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:22</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:35</a></div>
                         </td>
                     </tr>
 
@@ -544,15 +585,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>disminuirCantidad(item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+<code>disminuirCantidad(item: <a href="../interfaces/CompraProducto.html" target="_self">CompraProducto</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="38"
-                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:38</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:56</a></div>
                         </td>
                     </tr>
 
@@ -575,7 +616,7 @@
                                         <tr>
                                                 <td>item</td>
                                             <td>
-                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                            <code><a href="../interfaces/CompraProducto.html" target="_self" >CompraProducto</a></code>
                                             </td>
 
                                             <td>
@@ -611,15 +652,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>eliminarProducto(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+<code>eliminarProducto(productoId: number | undefined)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="49"
-                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:49</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="67"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:67</a></div>
                         </td>
                     </tr>
 
@@ -640,9 +681,9 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>id</td>
+                                                <td>productoId</td>
                                             <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        <code>number | undefined</code>
                                             </td>
 
                                             <td>
@@ -685,8 +726,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="64"
-                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:64</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="98"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:98</a></div>
                         </td>
                     </tr>
 
@@ -722,8 +763,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="59"
-                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:59</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="89"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:89</a></div>
                         </td>
                     </tr>
 
@@ -759,8 +800,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="18"
-                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:18</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="31"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:31</a></div>
                         </td>
                     </tr>
 
@@ -796,8 +837,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="54"
-                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:54</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="81"
+                                    class="link-to-prism">src/app/pages/carrito/carrito.ts:81</a></div>
                         </td>
                     </tr>
 
@@ -833,7 +874,7 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>    <code>any[]</code>
+                        <i>Type : </i>    <code>Array&lt;CompraProducto &amp; { id?: number }&gt;</code>
 
                     </td>
                 </tr>
@@ -844,7 +885,100 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/pages/carrito/carrito.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/pages/carrito/carrito.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="error"></a>
+                    <span class="name">
+                        <span ><b>error</b></span>
+                        <a href="#error"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/carrito/carrito.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mensaje"></a>
+                    <span class="name">
+                        <span ><b>mensaje</b></span>
+                        <a href="#mensaje"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/pages/carrito/carrito.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="procesandoCompra"></a>
+                    <span class="name">
+                        <span ><b>procesandoCompra</b></span>
+                        <a href="#procesandoCompra"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/pages/carrito/carrito.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -875,7 +1009,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/pages/carrito/carrito.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/pages/carrito/carrito.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -884,13 +1018,45 @@
     </table>
 </section>
 
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="totalUnidades"></a>
+                        <span class="name"><b>totalUnidades</b><a href="#totalUnidades"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>totalUnidades()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="159" class="link-to-prism">src/app/pages/carrito/carrito.ts:159</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
 import { CommonModule } from &#x27;@angular/common&#x27;;
-import { RouterLink, Router } from &#x27;@angular/router&#x27;;
+import { Router, RouterLink } from &#x27;@angular/router&#x27;;
+import { HttpErrorResponse } from &#x27;@angular/common/http&#x27;;
+
+import { Compra, CompraProducto } from &#x27;../../models/compra&#x27;;
+import { ComprasService } from &#x27;../../services/compras.service&#x27;;
+
 
 @Component({
   selector: &#x27;app-carrito&#x27;,
@@ -900,84 +1066,154 @@ import { RouterLink, Router } from &#x27;@angular/router&#x27;;
   styleUrl: &#x27;./carrito.css&#x27;
 })
 export class Carrito implements OnInit {
-  carrito: any[] &#x3D; [];
+
+  carrito: Array&lt;CompraProducto &amp; { id?: number }&gt; &#x3D; [];
   total &#x3D; 0;
 
-  constructor(private router: Router) {}
+  procesandoCompra &#x3D; false;
+  mensaje &#x3D; &#x27;&#x27;;
+  error &#x3D; &#x27;&#x27;;
+
+  constructor(
+    private router: Router,
+    private comprasService: ComprasService
+  ) {}
 
   ngOnInit(): void {
     this.cargarCarrito();
   }
 
   cargarCarrito(): void {
-    this.carrito &#x3D; JSON.parse(localStorage.getItem(&#x27;carrito&#x27;) || &#x27;[]&#x27;);
+    this.carrito &#x3D; JSON.parse(
+      localStorage.getItem(&#x27;carrito&#x27;) || &#x27;[]&#x27;
+    );
+
     this.calcularTotal();
   }
 
   calcularTotal(): void {
-    this.total &#x3D; this.carrito.reduce((sum: number, item: any) &#x3D;&gt; {
-      return sum + item.precio * item.cantidad;
-    }, 0);
+    this.total &#x3D; this.carrito.reduce(
+      (sum: number, item: CompraProducto) &#x3D;&gt;
+        sum + item.precio * item.cantidad,
+      0
+    );
   }
 
-  aumentarCantidad(item: any): void {
+  aumentarCantidad(item: CompraProducto): void {
     item.cantidad +&#x3D; 1;
     this.guardarCarrito();
   }
 
-  disminuirCantidad(item: any): void {
+  disminuirCantidad(item: CompraProducto): void {
     if (item.cantidad &gt; 1) {
       item.cantidad -&#x3D; 1;
     } else {
-      this.eliminarProducto(item.id);
+      this.eliminarProducto(item.productoId);
       return;
     }
 
     this.guardarCarrito();
   }
 
-  eliminarProducto(id: number): void {
-    this.carrito &#x3D; this.carrito.filter((item: any) &#x3D;&gt; item.id !&#x3D;&#x3D; id);
-    this.guardarCarrito();
+eliminarProducto(productoId: number | undefined): void {
+  if (productoId &#x3D;&#x3D;&#x3D; undefined) {
+    this.error &#x3D; &#x27;No se pudo identificar el producto.&#x27;;
+    return;
   }
+
+  this.carrito &#x3D; this.carrito.filter(
+    (item: CompraProducto &amp; { id?: number }) &#x3D;&gt;
+      (item.productoId ?? item.id) !&#x3D;&#x3D; productoId
+  );
+
+  this.guardarCarrito();
+}
 
   vaciarCarrito(): void {
     this.carrito &#x3D; [];
     this.guardarCarrito();
+
+    this.mensaje &#x3D; &#x27;Carrito vaciado correctamente.&#x27;;
+    this.error &#x3D; &#x27;&#x27;;
   }
 
   guardarCarrito(): void {
-    localStorage.setItem(&#x27;carrito&#x27;, JSON.stringify(this.carrito));
+    localStorage.setItem(
+      &#x27;carrito&#x27;,
+      JSON.stringify(this.carrito)
+    );
+
     this.calcularTotal();
   }
 
   finalizarCompra(): void {
+    this.mensaje &#x3D; &#x27;&#x27;;
+    this.error &#x3D; &#x27;&#x27;;
+
     if (this.carrito.length &#x3D;&#x3D;&#x3D; 0) {
+      this.error &#x3D; &#x27;El carrito está vacío.&#x27;;
       return;
     }
 
-    const usuarioActivo &#x3D; JSON.parse(localStorage.getItem(&#x27;usuarioActivo&#x27;) || &#x27;null&#x27;);
+    const usuarioActivo &#x3D; JSON.parse(
+      localStorage.getItem(&#x27;usuarioActivo&#x27;) || &#x27;null&#x27;
+    );
 
-    const compra &#x3D; {
-      id: Date.now(),
-      fecha: new Date().toLocaleDateString(&#x27;es-CL&#x27;),
-      usuario: usuarioActivo?.email || &#x27;invitado&#x27;,
-      productos: this.carrito,
+    if (!usuarioActivo?.email) {
+      this.error &#x3D; &#x27;Debes iniciar sesión para finalizar la compra.&#x27;;
+      return;
+    }
+
+      const productosCompra: CompraProducto[] &#x3D; this.carrito.map(
+      (item: any) &#x3D;&gt; ({
+        productoId: item.productoId ?? item.id,
+        nombre: item.nombre,
+        precio: Number(item.precio),
+        cantidad: Number(item.cantidad),
+        imagen: item.imagen,
+        categoria: item.categoria,
+        descripcion: item.descripcion
+      })
+    );
+
+    const compra: Compra &#x3D; {
+      usuarioId: usuarioActivo.id,
+      usuarioEmail: usuarioActivo.email,
+      fecha: new Date().toISOString(),
+      productos: productosCompra,
       total: this.total,
-      estado: &#x27;Pagado&#x27;
+      estado: &#x27;Pagada&#x27;
     };
 
-    const compras &#x3D; JSON.parse(localStorage.getItem(&#x27;compras&#x27;) || &#x27;[]&#x27;);
-    compras.push(compra);
+    this.procesandoCompra &#x3D; true;
 
-    localStorage.setItem(&#x27;compras&#x27;, JSON.stringify(compras));
-    localStorage.removeItem(&#x27;carrito&#x27;);
+    this.comprasService.crearCompra(compra).subscribe({
+      next: (compraCreada: Compra) &#x3D;&gt; {
+        console.log(&#x27;Compra registrada en la API:&#x27;, compraCreada);
 
-    this.carrito &#x3D; [];
-    this.total &#x3D; 0;
+        localStorage.removeItem(&#x27;carrito&#x27;);
 
-    this.router.navigate([&#x27;/mis-compras&#x27;]);
+        this.carrito &#x3D; [];
+        this.total &#x3D; 0;
+        this.procesandoCompra &#x3D; false;
+
+        this.router.navigate([&#x27;/mis-compras&#x27;]);
+      },
+      error: (error: HttpErrorResponse) &#x3D;&gt; {
+        console.error(&#x27;Error al registrar la compra:&#x27;, error);
+
+        this.error &#x3D; &#x27;No fue posible registrar la compra.&#x27;;
+        this.procesandoCompra &#x3D; false;
+      }
+    });
   }
+  get totalUnidades(): number {
+  return this.carrito.reduce(
+    (total: number, item: CompraProducto) &#x3D;&gt;
+      total + Number(item.cantidad),
+    0
+  );
+}
 }</code></pre>
     </div>
 
@@ -1001,38 +1237,100 @@ export class Carrito implements OnInit {
   &lt;main class&#x3D;&quot;container&quot;&gt;
     &lt;section class&#x3D;&quot;page-title&quot;&gt;
       &lt;span class&#x3D;&quot;tag&quot;&gt;Compra simulada&lt;/span&gt;
+
       &lt;h2&gt;Carrito de compras&lt;/h2&gt;
+
       &lt;p&gt;
         Revisa los juegos agregados antes de finalizar la compra.
       &lt;/p&gt;
     &lt;/section&gt;
 
-    &lt;section class&#x3D;&quot;empty-cart&quot; *ngIf&#x3D;&quot;carrito.length &#x3D;&#x3D;&#x3D; 0&quot;&gt;
+    &lt;p
+      *ngIf&#x3D;&quot;mensaje&quot;
+      class&#x3D;&quot;mensaje mensaje-exito&quot;&gt;
+      {{ mensaje }}
+    &lt;/p&gt;
+
+    &lt;p
+      *ngIf&#x3D;&quot;error&quot;
+      class&#x3D;&quot;mensaje mensaje-error&quot;&gt;
+      {{ error }}
+    &lt;/p&gt;
+
+    &lt;section
+      class&#x3D;&quot;empty-cart&quot;
+      *ngIf&#x3D;&quot;carrito.length &#x3D;&#x3D;&#x3D; 0&quot;&gt;
+
       &lt;h3&gt;Tu carrito está vacío&lt;/h3&gt;
-      &lt;p&gt;Agrega juegos desde el catálogo para continuar.&lt;/p&gt;
-      &lt;a routerLink&#x3D;&quot;/productos&quot; class&#x3D;&quot;btn btn-primary&quot;&gt;Ver catálogo&lt;/a&gt;
+
+      &lt;p&gt;
+        Agrega juegos desde el catálogo para continuar.
+      &lt;/p&gt;
+
+      &lt;a
+        routerLink&#x3D;&quot;/productos&quot;
+        class&#x3D;&quot;btn btn-primary&quot;&gt;
+        Ver catálogo
+      &lt;/a&gt;
     &lt;/section&gt;
 
-    &lt;section class&#x3D;&quot;cart-layout&quot; *ngIf&#x3D;&quot;carrito.length &gt; 0&quot;&gt;
+    &lt;section
+      class&#x3D;&quot;cart-layout&quot;
+      *ngIf&#x3D;&quot;carrito.length &gt; 0&quot;&gt;
+
       &lt;div class&#x3D;&quot;cart-items&quot;&gt;
-        &lt;article class&#x3D;&quot;cart-card&quot; *ngFor&#x3D;&quot;let item of carrito&quot;&gt;
-          &lt;div class&#x3D;&quot;item-icon&quot;&gt;{{ item.imagen }}&lt;/div&gt;
+        &lt;article
+          class&#x3D;&quot;cart-card&quot;
+          *ngFor&#x3D;&quot;let item of carrito&quot;&gt;
+
+          &lt;div class&#x3D;&quot;item-icon&quot;&gt;
+            {{ item.imagen }}
+          &lt;/div&gt;
 
           &lt;div class&#x3D;&quot;item-info&quot;&gt;
-            &lt;span&gt;{{ item.categoria }}&lt;/span&gt;
-            &lt;h3&gt;{{ item.nombre }}&lt;/h3&gt;
-            &lt;p&gt;{{ item.descripcion }}&lt;/p&gt;
-            &lt;strong&gt;${{ item.precio }}&lt;/strong&gt;
+            &lt;span *ngIf&#x3D;&quot;item.categoria&quot;&gt;
+              {{ item.categoria }}
+            &lt;/span&gt;
+
+            &lt;h3&gt;
+              {{ item.nombre }}
+            &lt;/h3&gt;
+
+            &lt;p *ngIf&#x3D;&quot;item.descripcion&quot;&gt;
+              {{ item.descripcion }}
+            &lt;/p&gt;
+
+            &lt;strong&gt;
+              {{ item.precio | currency:&#x27;CLP&#x27;:&#x27;symbol-narrow&#x27;:&#x27;1.0-0&#x27; }}
+            &lt;/strong&gt;
           &lt;/div&gt;
 
           &lt;div class&#x3D;&quot;item-actions&quot;&gt;
             &lt;div class&#x3D;&quot;quantity&quot;&gt;
-              &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;disminuirCantidad(item)&quot;&gt;-&lt;/button&gt;
-              &lt;span&gt;{{ item.cantidad }}&lt;/span&gt;
-              &lt;button type&#x3D;&quot;button&quot; (click)&#x3D;&quot;aumentarCantidad(item)&quot;&gt;+&lt;/button&gt;
+              &lt;button
+                type&#x3D;&quot;button&quot;
+                [disabled]&#x3D;&quot;procesandoCompra&quot;
+                (click)&#x3D;&quot;disminuirCantidad(item)&quot;&gt;
+                -
+              &lt;/button&gt;
+
+              &lt;span&gt;
+                {{ item.cantidad }}
+              &lt;/span&gt;
+
+              &lt;button
+                type&#x3D;&quot;button&quot;
+                [disabled]&#x3D;&quot;procesandoCompra&quot;
+                (click)&#x3D;&quot;aumentarCantidad(item)&quot;&gt;
+                +
+              &lt;/button&gt;
             &lt;/div&gt;
 
-            &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn-delete&quot; (click)&#x3D;&quot;eliminarProducto(item.id)&quot;&gt;
+            &lt;button
+              type&#x3D;&quot;button&quot;
+              class&#x3D;&quot;btn-delete&quot;
+              [disabled]&#x3D;&quot;procesandoCompra&quot;
+              (click)&#x3D;&quot;eliminarProducto(item.productoId || item.id)&quot;&gt;
               Eliminar
             &lt;/button&gt;
           &lt;/div&gt;
@@ -1043,20 +1341,48 @@ export class Carrito implements OnInit {
         &lt;h3&gt;Resumen&lt;/h3&gt;
 
         &lt;div class&#x3D;&quot;summary-row&quot;&gt;
-          &lt;span&gt;Productos&lt;/span&gt;
-          &lt;strong&gt;{{ carrito.length }}&lt;/strong&gt;
+          &lt;span&gt;Productos distintos&lt;/span&gt;
+
+          &lt;strong&gt;
+            {{ carrito.length }}
+          &lt;/strong&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;summary-row&quot;&gt;
+          &lt;span&gt;Unidades&lt;/span&gt;
+
+          &lt;strong&gt;
+            {{ totalUnidades }}
+          &lt;/strong&gt;
         &lt;/div&gt;
 
         &lt;div class&#x3D;&quot;summary-row total&quot;&gt;
           &lt;span&gt;Total&lt;/span&gt;
-          &lt;strong&gt;${{ total }}&lt;/strong&gt;
+
+          &lt;strong&gt;
+            {{ total | currency:&#x27;CLP&#x27;:&#x27;symbol-narrow&#x27;:&#x27;1.0-0&#x27; }}
+          &lt;/strong&gt;
         &lt;/div&gt;
 
-        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary&quot; (click)&#x3D;&quot;finalizarCompra()&quot;&gt;
-          Finalizar compra
+        &lt;button
+          type&#x3D;&quot;button&quot;
+          class&#x3D;&quot;btn btn-primary&quot;
+          [disabled]&#x3D;&quot;procesandoCompra || carrito.length &#x3D;&#x3D;&#x3D; 0&quot;
+          (click)&#x3D;&quot;finalizarCompra()&quot;&gt;
+
+          {{
+            procesandoCompra
+              ? &#x27;Procesando compra...&#x27;
+              : &#x27;Finalizar compra&#x27;
+          }}
         &lt;/button&gt;
 
-        &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-secondary&quot; (click)&#x3D;&quot;vaciarCarrito()&quot;&gt;
+        &lt;button
+          type&#x3D;&quot;button&quot;
+          class&#x3D;&quot;btn btn-secondary&quot;
+          [disabled]&#x3D;&quot;procesandoCompra&quot;
+          (click)&#x3D;&quot;vaciarCarrito()&quot;&gt;
+
           Vaciar carrito
         &lt;/button&gt;
       &lt;/aside&gt;
@@ -1352,7 +1678,7 @@ export class Carrito implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="carrito-page">  <header class="navbar">    <div>      <h1>NortLAB</h1>      <p>Carrito de compras</p>    </div>    <nav>      <a routerLink="/inicio">Inicio</a>      <a routerLink="/productos">Catálogo</a>      <a routerLink="/carrito">Carrito</a>      <a routerLink="/mis-compras">Mis compras</a>      <a routerLink="/perfil">Perfil</a>    </nav>  </header>  <main class="container">    <section class="page-title">      <span class="tag">Compra simulada</span>      <h2>Carrito de compras</h2>      <p>        Revisa los juegos agregados antes de finalizar la compra.      </p>    </section>    <section class="empty-cart" *ngIf="carrito.length === 0">      <h3>Tu carrito está vacío</h3>      <p>Agrega juegos desde el catálogo para continuar.</p>      <a routerLink="/productos" class="btn btn-primary">Ver catálogo</a>    </section>    <section class="cart-layout" *ngIf="carrito.length > 0">      <div class="cart-items">        <article class="cart-card" *ngFor="let item of carrito">          <div class="item-icon">{{ item.imagen }}</div>          <div class="item-info">            <span>{{ item.categoria }}</span>            <h3>{{ item.nombre }}</h3>            <p>{{ item.descripcion }}</p>            <strong>${{ item.precio }}</strong>          </div>          <div class="item-actions">            <div class="quantity">              <button type="button" (click)="disminuirCantidad(item)">-</button>              <span>{{ item.cantidad }}</span>              <button type="button" (click)="aumentarCantidad(item)">+</button>            </div>            <button type="button" class="btn-delete" (click)="eliminarProducto(item.id)">              Eliminar            </button>          </div>        </article>      </div>      <aside class="summary">        <h3>Resumen</h3>        <div class="summary-row">          <span>Productos</span>          <strong>{{ carrito.length }}</strong>        </div>        <div class="summary-row total">          <span>Total</span>          <strong>${{ total }}</strong>        </div>        <button type="button" class="btn btn-primary" (click)="finalizarCompra()">          Finalizar compra        </button>        <button type="button" class="btn btn-secondary" (click)="vaciarCarrito()">          Vaciar carrito        </button>      </aside>    </section>  </main></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div class="carrito-page">  <header class="navbar">    <div>      <h1>NortLAB</h1>      <p>Carrito de compras</p>    </div>    <nav>      <a routerLink="/inicio">Inicio</a>      <a routerLink="/productos">Catálogo</a>      <a routerLink="/carrito">Carrito</a>      <a routerLink="/mis-compras">Mis compras</a>      <a routerLink="/perfil">Perfil</a>    </nav>  </header>  <main class="container">    <section class="page-title">      <span class="tag">Compra simulada</span>      <h2>Carrito de compras</h2>      <p>        Revisa los juegos agregados antes de finalizar la compra.      </p>    </section>    <p      *ngIf="mensaje"      class="mensaje mensaje-exito">      {{ mensaje }}    </p>    <p      *ngIf="error"      class="mensaje mensaje-error">      {{ error }}    </p>    <section      class="empty-cart"      *ngIf="carrito.length === 0">      <h3>Tu carrito está vacío</h3>      <p>        Agrega juegos desde el catálogo para continuar.      </p>      <a        routerLink="/productos"        class="btn btn-primary">        Ver catálogo      </a>    </section>    <section      class="cart-layout"      *ngIf="carrito.length > 0">      <div class="cart-items">        <article          class="cart-card"          *ngFor="let item of carrito">          <div class="item-icon">            {{ item.imagen }}          </div>          <div class="item-info">            <span *ngIf="item.categoria">              {{ item.categoria }}            </span>            <h3>              {{ item.nombre }}            </h3>            <p *ngIf="item.descripcion">              {{ item.descripcion }}            </p>            <strong>              {{ item.precio | currency:\'CLP\':\'symbol-narrow\':\'1.0-0\' }}            </strong>          </div>          <div class="item-actions">            <div class="quantity">              <button                type="button"                [disabled]="procesandoCompra"                (click)="disminuirCantidad(item)">                -              </button>              <span>                {{ item.cantidad }}              </span>              <button                type="button"                [disabled]="procesandoCompra"                (click)="aumentarCantidad(item)">                +              </button>            </div>            <button              type="button"              class="btn-delete"              [disabled]="procesandoCompra"              (click)="eliminarProducto(item.productoId || item.id)">              Eliminar            </button>          </div>        </article>      </div>      <aside class="summary">        <h3>Resumen</h3>        <div class="summary-row">          <span>Productos distintos</span>          <strong>            {{ carrito.length }}          </strong>        </div>        <div class="summary-row">          <span>Unidades</span>          <strong>            {{ totalUnidades }}          </strong>        </div>        <div class="summary-row total">          <span>Total</span>          <strong>            {{ total | currency:\'CLP\':\'symbol-narrow\':\'1.0-0\' }}          </strong>        </div>        <button          type="button"          class="btn btn-primary"          [disabled]="procesandoCompra || carrito.length === 0"          (click)="finalizarCompra()">          {{            procesandoCompra              ? \'Procesando compra...\'              : \'Finalizar compra\'          }}        </button>        <button          type="button"          class="btn btn-secondary"          [disabled]="procesandoCompra"          (click)="vaciarCarrito()">          Vaciar carrito        </button>      </aside>    </section>  </main></div></div>'
     var COMPONENTS = [{'name': 'Admin', 'selector': 'app-admin'},{'name': 'AdminProductos', 'selector': 'app-admin-productos'},{'name': 'AdminUsuarios', 'selector': 'app-admin-usuarios'},{'name': 'App', 'selector': 'app-root'},{'name': 'Carrito', 'selector': 'app-carrito'},{'name': 'Inicio', 'selector': 'app-inicio'},{'name': 'Login', 'selector': 'app-login'},{'name': 'MisCompras', 'selector': 'app-mis-compras'},{'name': 'Perfil', 'selector': 'app-perfil'},{'name': 'Productos', 'selector': 'app-productos'},{'name': 'Recuperar', 'selector': 'app-recuperar'},{'name': 'Registro', 'selector': 'app-registro'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'Carrito'};

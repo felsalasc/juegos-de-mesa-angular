@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:juegos-de-mesa-angular": "node dist/juegos-de-mesa-angular/server/server.mjs",
-    "docs": "npx compodoc -p tsconfig.app.json -s"
+    "docs": "npx compodoc -p tsconfig.app.json -s",
+    "compodoc": "compodoc -p tsconfig.app.json -s"
   },
   "private": true,
   "packageManager": "npm@11.11.0",
